@@ -11,7 +11,7 @@
 
 namespace Netzmacht\Bootstrap\Templates;
 
-class Modifiers
+class Modifier
 {
 
 	/**
