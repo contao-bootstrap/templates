@@ -1,0 +1,42 @@
+{
+    "name":"contao-bootstrap/templates",
+    "description":"Modified Contao templates supporting Bootstrap markup",
+    "keywords":["bootstrap", "templates", "contao"],
+    "type":"contao-module",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"David Molineus",
+            "email":"mail@netzmacht.de",
+            "homepage":"http://www.netzmacht.de",
+            "role":"Project leader"
+        }
+    ],
+    "support":{
+        "email":"mail@netzmacht.de",
+        "issues":"https://github.com/contao-bootstrap/templates/issues",
+        "wiki":"http://contao-bootstrap.netzmacht.de",
+        "source":"https://github.com/contao-bootstrap/templates"
+    },
+    "require":{
+        "php":">=5.3.4",
+        "contao/core": ">=3.2,<3.4",
+        "contao-bootstrap/core": "~1.0"
+    },
+    "conflict": {
+        "netzmacht/contao-bootstrap": "*"
+    },
+    "autoload": {
+        "psr-0": { "Netzmacht\\Bootstrap\\Templates\\": "src/" }
+    },
+    "extra":{
+        "contao": {
+            "sources":{
+                "module": "system/modules/bootstrap-templates"
+            }
+        },
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
