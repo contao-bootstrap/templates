@@ -5,7 +5,7 @@
 	<div class="form">
 
 		<?php if ($this->confirm): ?>
-			<p class="confirm"><?php echo $this->confirm; ?></p>
+			<p class="confirm alert alert-success"><?php echo $this->confirm; ?></p>
 		<?php elseif ($this->allowComments): ?>
 			<form<?php if ($this->action): ?> action="<?php echo $this->action; ?>"<?php endif; ?> id="<?php echo $this->formId; ?>" method="post">
 				<div class="formbody <?php if(!Bootstrap::getConfigVar('form.defaultTableless')): ?>form-horizontal<?php endif; ?>">
@@ -22,7 +22,7 @@
 						<?php if(!Bootstrap::getConfigVar('form.defaultTableless')): ?>
 						<div class="<?php echo Bootstrap::getConfigVar('form.tableFormat.offset') . ' ' . Bootstrap::getConfigVar('form.tableFormat.control'); ?>">
 						<?php endif; ?>
-						<input type="submit" class="submit" value="<?php echo $this->submit; ?>">
+						<input type="submit" class="submit btn btn-primary" value="<?php echo $this->submit; ?>">
 						<?php if(!Bootstrap::getConfigVar('form.defaultTableless')): ?>
 						</div>
 						<?php endif; ?>
