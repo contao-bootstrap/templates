@@ -14,6 +14,15 @@ return array(
 				'callback'  => array('Netzmacht\Bootstrap\Templates\Modifier', 'replaceTableClasses'),
 				'templates' => array('ce_*'),
 			),
+
+			'replace.paginationActiveClass' => array
+			(
+				'type'        => 'replace',
+				'key'         => 'items',
+				'search'      => '<li><span class="current">',
+				'replace'     => '<li class="active"><span>',
+				'templates'   => array('pagination'),
+			),
 		),
 	),
 );
