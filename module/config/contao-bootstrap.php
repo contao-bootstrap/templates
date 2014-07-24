@@ -3,19 +3,19 @@
 return array(
 	'templates' => array(
 		'modifiers' => array(
-			'callback.replaceImageClasses' => array(
+			'callback_replace-image-classes' => array(
 				'type'      => 'callback',
 				'callback'  => array('Netzmacht\Bootstrap\Templates\Modifier', 'replaceImageClasses'),
 				'templates' => array('ce_*'),
 			),
 
-			'callback.replaceTableClasses' => array(
+			'callback_replace-table-classes' => array(
 				'type'      => 'callback',
 				'callback'  => array('Netzmacht\Bootstrap\Templates\Modifier', 'replaceTableClasses'),
 				'templates' => array('ce_*'),
 			),
 
-			'replace.paginationActiveClass' => array
+			'replace_pagination-active-class' => array
 			(
 				'type'        => 'replace',
 				'key'         => 'items',
