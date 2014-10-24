@@ -34,6 +34,12 @@
         "contao": {
             "sources":{
                 "module": "system/modules/bootstrap-templates"
+            },
+            "transifex": {
+                "project": "contao-bootstrap",
+                "prefix": "templates-",
+                "languages_cto": "module/languages",
+                "languages_tx": ".tx"
             }
         },
         "branch-alias": {
