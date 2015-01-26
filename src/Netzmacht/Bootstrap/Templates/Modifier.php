@@ -19,7 +19,7 @@ class Modifier
 	 */
 	public static function replaceImageClasses(\Template $template)
 	{
-		if (empty($template->imgSize)) {
+		if (empty($template->imgSize) && empty($template->picture['img'])) {
 			return;
 		}
 
@@ -35,8 +35,17 @@ class Modifier
 		}
 
 		if (count($imageClasses)) {
+			$imageClasses	 	= implode(' ', $imageClasses);
 			$template->class    = implode(' ', $cssClasses);
-			$template->imgSize .= sprintf(' class="%s"', implode(' ', $imageClasses));
+			$template->imgSize .= sprintf(' class="%s"', $imageClasses);
+
+			if ($template->picture) {
+				$picture = $template->picture;
+
+				$picture['img']['class'] = $imageClasses;
+
+				$template->picture = $picture;
+			}
 		}
 	}
 

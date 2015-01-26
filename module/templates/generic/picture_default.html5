@@ -1,0 +1,22 @@
+<?php if ($this->sources): ?>
+    <picture>
+    <!--[if IE 9]><video style="display: none;"><![endif]-->
+    <?php foreach ($this->sources as $source): ?>
+        <source srcset="<?php echo $source['srcset'] ?>"<?php if (!empty($source['sizes'])): ?> sizes="<?php echo $source['sizes']; ?>"<?php endif; ?><?php if (!empty($source['media'])): ?> media="<?php echo $source['media']; ?>"<?php endif; ?>>
+    <?php endforeach; ?>
+    <!--[if IE 9]></video><![endif]-->
+<?php endif; ?>
+
+<img<?php array_walk($this->img, function($value, $key) { echo ($value ? sprintf(' %s="%s"', $key, $value) : ''); }); ?>>
+
+<?php if ($this->sources): ?>
+    </picture>
+<?php endif; ?>
+
+<?php if ($this->sources || $this->img['src'] !== $this->img['srcset']): ?>
+    <script>
+        window.respimage && window.respimage({
+            elements: [document.images[document.images.length - 1]]
+        });
+    </script>
+<?php endif; ?>
