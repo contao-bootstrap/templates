@@ -24,11 +24,14 @@
         "contao-community-alliance/composer-plugin": "~2.0",
         "contao-bootstrap/core": "~1.0"
     },
+    "require-dev": {
+        "netzmacht/contao-build-tools": "1.0.x-dev"
+    },
     "conflict": {
         "netzmacht/contao-bootstrap": "*"
     },
     "autoload": {
-        "psr-0": { "Netzmacht\\Bootstrap\\Templates\\": "src/" }
+        "psr-0": { "Netzmacht\\Bootstrap\\Templates": "src/" }
     },
     "extra":{
         "contao": {
@@ -45,5 +48,7 @@
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
