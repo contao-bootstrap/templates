@@ -47,7 +47,7 @@ class Modifier
             $template->class    = implode(' ', $cssClasses);
             $template->imgSize .= sprintf(' class="%s"', $imageClasses);
 
-            if ($template->picture) {
+            if (!empty($template->picture['img']) && is_array($template->picture['img'])) {
                 $picture = $template->picture;
 
                 $picture['img']['class'] = $imageClasses;
