@@ -9,7 +9,9 @@ $btnClass = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.default-submi
   <form<?php if ($this->action): ?> action="<?php echo $this->action; ?>"<?php endif; ?> id="tl_login" method="post">
     <div class="formbody">
       <?php if ($this->message): ?>
-      <p class="error"><?php echo $this->message; ?></p>
+      <div class="form-group has-feedback has-error">
+      <p class="help-block"><?php echo $this->message; ?></p>
+      </div>
       <?php endif; ?>
       <input type="hidden" name="FORM_SUBMIT" value="tl_login">
       <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
