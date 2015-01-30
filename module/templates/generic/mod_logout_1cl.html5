@@ -10,9 +10,13 @@ $button_class = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.styled.up
     <div class="formbody">
       <input type="hidden" name="FORM_SUBMIT" value="tl_logout">
       <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
-      <div class="login_info form-group">
-        <p><?php echo $this->loggedInAs; ?></p>
-        <p><?php echo $this->lastLogin; ?></p>
+      <div class="login_info">
+        <div class="form-group">
+          <?php echo $this->loggedInAs; ?>
+        </div>
+        <div class="form-group">
+          <?php echo $this->lastLogin; ?>
+        </div>
       </div>
       <div class="submit_container">
         <input type="submit" class="submit <?php echo $button_class; ?>" value="<?php echo $this->slabel; ?>">
