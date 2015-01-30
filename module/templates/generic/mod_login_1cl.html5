@@ -15,7 +15,7 @@
       <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
       <div class="form-group">
       	<label for="username"><?php echo $this->username; ?></label>
-      	<input type="text" name="username" id="username" class="text form-control" value="<?php echo $this->value; ?>"><br>
+      	<input type="text" name="username" id="username" class="text form-control" value="<?php echo $this->value; ?>">
       </div>
       <div class="form-group">
       	<label for="password"><?php echo $this->password; ?></label>
