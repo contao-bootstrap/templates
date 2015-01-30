@@ -1,7 +1,7 @@
 <?php
-$control_col = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.horizontal.control', 'col-lg-9');
-$offset_col = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.horizontal.offset', 'col-lg-offset-3');
-$button_class = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.styled.upload.class', 'btn btn-default');
+$controlClass = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.horizontal.control', 'col-lg-9');
+$offsetClass  = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.horizontal.offset', 'col-lg-offset-3');
+$btnClass     = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.default-submit-btn', 'btn-default');
 ?>
 <!-- indexer::stop -->
 <div class="<?php echo $this->class; ?> two_column logout block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
@@ -13,21 +13,21 @@ $button_class = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.styled.up
       <input type="hidden" name="FORM_SUBMIT" value="tl_logout">
       <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
       <div class="form-group">
-        <div class="<?php echo $offset_col; ?> <?php echo $control_col; ?>">
+        <div class="<?php echo $offsetClass; ?> <?php echo $controlClass; ?>">
           <?php echo $this->loggedInAs; ?>
         </div>
       </div>
       
       <div class="form-group">
-        <div class="<?php echo $offset_col; ?> <?php echo $control_col; ?>">
+        <div class="<?php echo $offsetClass; ?> <?php echo $controlClass; ?>">
           <?php echo $this->lastLogin; ?>
         </div>
       </div>
       
       <div class="form-group">
-        <div class="<?php echo $offset_col; ?> <?php echo $control_col; ?>">
+        <div class="<?php echo $offsetClass; ?> <?php echo $controlClass; ?>">
           <div class="submit_container">
-            <button type="submit" class="submit <?php echo $button_class; ?>"><?php echo $this->slabel; ?></button>
+            <button type="submit" class="submit btn <?php echo $btnClass; ?>"><?php echo $this->slabel; ?></button>
           </div>
         </div>
       </div>

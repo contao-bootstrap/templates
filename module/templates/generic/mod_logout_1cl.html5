@@ -1,5 +1,5 @@
 <?php
-$button_class = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.styled.upload.class', 'btn btn-default');
+$btnClass = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.default-submit-btn', 'btn-default');
 ?>
 <!-- indexer::stop -->
 <div class="<?php echo $this->class; ?> one_column logout block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
@@ -19,7 +19,7 @@ $button_class = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.styled.up
         </div>
       </div>
       <div class="submit_container">
-        <input type="submit" class="submit <?php echo $button_class; ?>" value="<?php echo $this->slabel; ?>">
+        <input type="submit" class="submit btn <?php echo $btnClass; ?>" value="<?php echo $this->slabel; ?>">
       </div>
     </div>
   </form>
