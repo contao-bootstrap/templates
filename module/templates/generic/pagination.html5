@@ -1,7 +1,7 @@
 <?php
 
 if (version_compare(VERSION, '3.4', '>=')) {
-	include $this->getTemplate('pagination_34');
+    include $this->getTemplate('pagination_34');
 } else {
-	include $this->getTemplate('pagination_33');
+    include $this->getTemplate('pagination_33');
 }
