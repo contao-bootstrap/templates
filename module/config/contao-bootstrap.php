@@ -21,7 +21,7 @@ return array(
             'callback_replace-table-classes' => array(
                 'type'      => 'callback',
                 'callback'  => array('Netzmacht\Bootstrap\Templates\Modifier', 'replaceTableClasses'),
-                'templates' => array('ce_*'),
+                'templates' => array('ce_table*'),
             ),
 
             'replace_pagination-active-class' => array

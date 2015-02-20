@@ -77,7 +77,7 @@ class Modifier
             }
         }
 
-        if (count($tableClasses)) {
+        if (count($tableClasses) > 1) {
             $template->class = implode(' ', $cssClasses);
 
             // reset sortable, to avoid double class attributes
