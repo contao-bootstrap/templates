@@ -48,9 +48,8 @@ class Modifier
             $template->imgSize .= sprintf(' class="%s"', $imageClasses);
 
             if ($template->picture) {
-                $picture = $template->picture;
-
-                $picture['img']['class'] = $imageClasses;
+                $picture                = $template->picture;
+                $picture['attributes'] .= sprintf(' class="%s"', $imageClasses);
 
                 $template->picture = $picture;
             }
