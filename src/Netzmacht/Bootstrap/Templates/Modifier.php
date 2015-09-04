@@ -67,16 +67,20 @@ class Modifier
     {
         $cssClasses   = $template->class;
         $cssClasses   = trimsplit(' ', $cssClasses);
-        $tableClasses = array('table');
+        $tableClasses = array();
 
         foreach ($cssClasses as $index => $cssClass) {
-            if (substr($cssClass, 0, 6) == 'table-') {
+            if ($cssClass === 'table' || substr($cssClass, 0, 6) == 'table-') {
                 $tableClasses[] = $cssClass;
                 unset($cssClasses[$index]);
             }
         }
 
-        if (count($tableClasses) > 1) {
+        if (count($tableClasses)) {
+            if (!in_array('table', $tableClasses)) {
+                $tableClasses[] = 'table';
+            }
+
             $template->class = implode(' ', $cssClasses);
 
             // reset sortable, to avoid double class attributes
