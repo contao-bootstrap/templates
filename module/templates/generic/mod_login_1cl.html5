@@ -25,8 +25,8 @@ $btnClass = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.default-submi
       </div>
       <?php if ($this->autologin): ?>
       <div class="checkbox_container checkbox">
-        <label>
-          <input type="checkbox" name="autologin" id="autologin" value="1" class="checkbox"> <label for="autologin"><?php echo $this->autoLabel; ?></label>
+        <label for="autologin">
+          <input type="checkbox" name="autologin" id="autologin" value="1" class="checkbox"> <?php echo $this->autoLabel; ?>
         </label>
       </div>
       <?php endif; ?>
