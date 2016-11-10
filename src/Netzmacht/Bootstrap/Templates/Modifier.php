@@ -3,7 +3,8 @@
 /**
  * @package    contao-bootstrap
  * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2014-2015 netzmacht creative David Molineus
+ * @author     Ingolf Steinhardt <info@e-spin.de> 
+ * @copyright  2014-2016 netzmacht creative David Molineus
  * @license    LGPL 3.0
  * @filesource
  *
@@ -39,6 +40,10 @@ class Modifier
             if (substr($cssClass, 0, 4) == 'img-') {
                 $imageClasses[] = $cssClass;
                 unset($cssClasses[$index]);
+            }
+
+            if ($cssClass == 'center-block') {
+                $imageClasses[] = $cssClass;
             }
         }
 
