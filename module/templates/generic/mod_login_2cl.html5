@@ -38,7 +38,7 @@ $btnClass    = Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.default-su
         <div class="<?php echo $offsetClass; ?> <?php echo $colClass; ?>">
           <div class="checkbox_container checkbox">
             <label>
-              <input type="checkbox" name="autologin" id="autologin" value="1" class="checkbox">
+              <input type="checkbox" name="autologin" id="autologin" value="1" class="checkbox"> <?php echo $this->autoLabel; ?>
             </label>
           </div>
         </div>
