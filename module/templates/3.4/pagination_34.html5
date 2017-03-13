@@ -12,7 +12,7 @@
     <?php endif; ?>
     <?php foreach ($this->pages as $page): ?>
       <?php if ($page['href'] === null): ?>
-        <li><span class="current"><?php echo $page['page']; ?></span></li>
+        <li class="active"><span class="current"><?php echo $page['page']; ?></span></li>
       <?php else: ?>
         <li><a href="<?php echo $page['href']; ?>" class="link" title="<?php echo $page['title']; ?>"><?php echo $page['page']; ?></a></li>
       <?php endif; ?>
