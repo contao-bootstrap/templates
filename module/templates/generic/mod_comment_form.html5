@@ -8,7 +8,7 @@
       <p class="confirm alert alert-success"><?php echo $this->confirm; ?></p>
     <?php elseif ($this->allowComments): ?>
       <form<?php if ($this->action): ?> action="<?php echo $this->action; ?>"<?php endif; ?> id="<?php echo $this->formId; ?>" method="post">
-        <div class="formbody <?php if(!Bootstrap::getConfigVar('form.default-horizontal')): ?>form-horizontal<?php endif; ?>">
+        <div class="formbody <?php if(Bootstrap::getConfigVar('form.default-horizontal')): ?>form-horizontal<?php endif; ?>">
           <input type="hidden" name="FORM_SUBMIT" value="<?php echo $this->formId; ?>">
           <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
 
@@ -19,11 +19,11 @@
           ?>
 
           <div class="form-group">
-            <?php if(!Bootstrap::getConfigVar('form.default-horizontal')): ?>
+            <?php if(Bootstrap::getConfigVar('form.default-horizontal')): ?>
             <div class="<?php echo Bootstrap::getConfigVar('form.horizontal.offset') . ' ' . Bootstrap::getConfigVar('form.horizontal.control'); ?>">
             <?php endif; ?>
             <input type="submit" class="submit btn btn-primary" value="<?php echo $this->submit; ?>">
-            <?php if(!Bootstrap::getConfigVar('form.default-horizontal')): ?>
+            <?php if(Bootstrap::getConfigVar('form.default-horizontal')): ?>
             </div>
             <?php endif; ?>
           </div>

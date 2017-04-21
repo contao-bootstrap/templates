@@ -34,4 +34,7 @@ return array(
             ),
         ),
     ),
+    'form' => array(
+        'default-submit-btn' => 'btn-default'
+    )
 );
