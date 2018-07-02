@@ -16,6 +16,7 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Templates\View;
 
 use Contao\FrontendTemplate;
+use Contao\Template;
 use ContaoBootstrap\Core\Environment;
 use ContaoBootstrap\Form\FormLayout\HorizontalFormLayout;
 use Netzmacht\Contao\FormDesigner\LayoutManager;
@@ -54,8 +55,8 @@ final class FormRenderer
     /**
      * Generate the form view.
      *
-     * @param string   $templatePrefix
-     * @param array    $data
+     * @param string $templatePrefix
+     * @param array  $data
      *
      * @return string
      */
@@ -64,21 +65,47 @@ final class FormRenderer
         $formLayout = $this->layoutManager->getDefaultLayout();
 
         if ($formLayout instanceof HorizontalFormLayout) {
-            $templateName           = $templatePrefix . '_horizontal';
-            $data['labelColClass']  = $formLayout->getLabelColumnClass();
-            $data['colClass']       = $formLayout->getColumnClass();
-            $data['colOffsetClass'] = $formLayout->getColumnClass(true);
+            $templateName = $templatePrefix . '_horizontal';
         } else {
             $templateName = $templatePrefix . '_default';
         }
 
-        $data['formLayout']  = $formLayout;
-        $data['buttonClass'] = $this->environment->getConfig()->get('form.buttons.submit', 'btn-default');
-        $data['rowClass']    = $this->environment->getConfig()->get('form.row', 'form-row');
-
         $template = new FrontendTemplate($templateName);
         $template->setData($data);
+        $this->prepareTemplate($template);
 
         return $template->parse();
+    }
+
+    /**
+     * @param Template $template
+     */
+    public function prepareTemplate(Template $template): void
+    {
+        $formLayout = $this->layoutManager->getDefaultLayout();
+
+        if ($formLayout instanceof HorizontalFormLayout) {
+            $template->labelColClass  = $formLayout->getLabelColumnClass();
+            $template->colClass       = $formLayout->getColumnClass();
+            $template->colOffsetClass = $formLayout->getColumnClass(true);
+        } else {
+            $template->labelColClass  = null;
+            $template->colClass       = null;
+            $template->colOffsetClass = null;
+        }
+
+        $template->formLayout  = $formLayout;
+        $template->buttonClass = $this->getButtonClass();
+        $template->rowClass    = $this->environment->getConfig()->get('form.row_class', 'form-row');
+    }
+
+    /**
+     * Get the button class.
+     *
+     * @return string
+     */
+    public function getButtonClass(): string
+    {
+        return 'btn ' . $this->environment->getConfig()->get('form.buttons.submit', 'btn-default');
     }
 }

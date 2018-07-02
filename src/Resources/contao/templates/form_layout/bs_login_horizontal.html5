@@ -11,19 +11,23 @@
         <?php else: ?>
             <input type="hidden" name="_failure_path" value="<?= $this->failurePath ?>">
             <input type="hidden" name="_always_use_target_path" value="<?= $this->forceTargetPath ?>">
-            <div class="widget form-group widget-text">
-                <label for="username"><?= $this->username ?></label>
+            <div class="widget form-group <?= $this->rowClass ?> widget-text">
+                <label for="username" class="col-form-label <?= $this->labelColClass ?>"><?= $this->username ?></label>
+                <div class="<?= $this->colClass ?>">
                 <input type="text" name="username" id="username" class="text form-control" value="<?= $this->value ?>"
                        required>
+                </div>
             </div>
-            <div class="widget form-group widget-password">
-                <label for="password"><?= $this->password ?></label>
+            <div class="widget form-group <?= $this->rowClass ?> widget-password">
+                <label for="password" class="col-form-label <?= $this->labelColClass ?>"><?= $this->password ?></label>
+                <div class="<?= $this->colClass ?>">
                 <input type="password" name="password" id="password" class="text form-control password" value=""
                        required>
+                </div>
             </div>
             <?php if ($this->autologin): ?>
-                <div class="widget form-group widget-checkbox">
-                    <fieldset class="checkbox_container">
+                <div class="widget <?= $this->rowClass ?> form-group widget-checkbox">
+                    <fieldset class="checkbox_container <?= $this->colOffsetClass ?>">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="autologin" class="custom-control-input" id="autologin">
                             <label class="custom-control-label" for="autologin"><?= $this->autoLabel ?></label>
@@ -32,8 +36,10 @@
                 </div>
             <?php endif; ?>
         <?php endif; ?>
-        <div class="widget form-group widget-submit">
-            <button type="submit" class="submit btn <?= $this->buttonClass ?>"><?= $this->slabel ?></button>
+        <div class="widget <?= $this->rowClass ?> form-group widget-submit">
+            <div class="<?= $this->colOffsetClass ?>">
+            <button type="submit" class="submit <?= $this->buttonClass ?>"><?= $this->slabel ?></button>
+            </div>
         </div>
     </div>
 </form>

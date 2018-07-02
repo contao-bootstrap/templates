@@ -38,5 +38,6 @@ final class ContaoBootstrapTemplatesExtension extends Extension
         );
 
         $loader->load('services.xml');
+        $loader->load('listener.xml');
     }
 }

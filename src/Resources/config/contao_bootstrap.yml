@@ -1,0 +1,8 @@
+templates:
+  auto_mapping: true
+
+  mapping:
+    member_default: member_default_bs
+    member_grouped: member_grouped_bs
+    mod_login:      mod_login_bs
+    mod_search:     mod_search_bs
