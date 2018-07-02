@@ -5,6 +5,7 @@ templates:
     com_default:      com_bs_media
     member_default:   member_default_bs
     member_grouped:   member_grouped_bs
+    mod_breadcrumb:   mod_breadcrumb_bs
     mod_comment_form: mod_comment_form_bs
     mod_login:        mod_login_bs
     mod_search:       mod_search_bs
