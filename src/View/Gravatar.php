@@ -1,22 +1,24 @@
 <?php
 
 /**
- * @package    contao-bootstrap
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2014-2015 netzmacht creative David Molineus
- * @license    LGPL 3.0
- * @filesource
+ * Contao Bootstrap templates.
  *
+ * @package    contao-bootstrap
+ * @subpackage Templates
+ * @author     David Molineus <david.molineus@netzmacht.de>
+ * @copyright  2014-2018 netzmacht David Molineus. All rights reserved.
+ * @license    https://github.com/contao-bootstrap/templates/blob/master/LICENSE LGPL 3.0-or-later
+ * @filesource
  */
 
-namespace Netzmacht\Bootstrap\Templates\Helper;
+namespace ContaoBootstrap\Templates\View;
 
 /**
  * Class Gravatar store basic gravatar methods for creating a gravatar.
  * 
  * @package Netzmacht\Bootstrap
  */
-class Gravatar
+final class Gravatar
 {
     /**
      * Base gravator url.

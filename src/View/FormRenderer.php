@@ -88,15 +88,18 @@ final class FormRenderer
             $template->labelColClass  = $formLayout->getLabelColumnClass();
             $template->colClass       = $formLayout->getColumnClass();
             $template->colOffsetClass = $formLayout->getColumnClass(true);
+            $template->rowClass       = $this->environment->getConfig()->get('form.row_class', 'form-row');
+            $template->isHorizontal   = true;
         } else {
             $template->labelColClass  = null;
             $template->colClass       = null;
             $template->colOffsetClass = null;
+            $template->rowClass       = null;
+            $template->isHorizontal   = false;
         }
 
         $template->formLayout  = $formLayout;
         $template->buttonClass = $this->getButtonClass();
-        $template->rowClass    = $this->environment->getConfig()->get('form.row_class', 'form-row');
     }
 
     /**

@@ -1,0 +1,28 @@
+<?php $this->getContainer()->get('contao_bootstrap.templates.view.form_renderer')->prepareTemplate($this) ?>
+
+<!-- indexer::stop -->
+<div class="form">
+    <?php if ($this->requireLogin): ?>
+        <p class="info"><?= $this->login ?></p>
+    <?php else: ?>
+        <?php if ($this->confirm): ?>
+            <p class="tl_confirm"><?= $this->confirm ?></p>
+        <?php elseif ($this->allowComments): ?>
+            <form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> id="<?= $this->formId ?>" method="post">
+                <div class="formbody">
+                    <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formId ?>">
+                    <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+                    <?php foreach ($this->fields as $field): ?>
+                        <?= $field->parse() ?>
+                    <?php endforeach; ?>
+                    <div class="widget widget-submit <?= $this->rowClass ?>">
+                        <?php if ($this->isHorizontal): ?><div class="<?= $this->colOffsetClass ?>"><?php endif ?>
+                        <button type="submit" class="submit <?= $this->buttonClass ?>"><?= $this->submit ?></button>
+                        <?php if ($this->isHorizontal): ?></div><?php endif ?>
+                    </div>
+                </div>
+            </form>
+        <?php endif; ?>
+    <?php endif; ?>
+</div>
+<!-- indexer::continue -->
