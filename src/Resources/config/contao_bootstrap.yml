@@ -6,3 +6,4 @@ templates:
     member_grouped: member_grouped_bs
     mod_login:      mod_login_bs
     mod_search:     mod_search_bs
+    pagination:     pagination_bs
