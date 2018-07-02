@@ -9,7 +9,7 @@
                             <?php if ($col->href): ?>
                                 <a href="<?= $col->href ?>"<?= $col->attributes ?><?php if ($col->linkTitle) echo ' title="' . $col->linkTitle . '"'; ?>><?php $this->insert('picture_default', $col->picture); ?></a>
                             <?php else: ?>
-                                <?php $picture = $col->picture; $picture['img']['class'] = 'd-block w-100' ?>
+                                <?php $picture = $col->picture; $picture['img']['class'] = 'd-block w-100 img-fluid' ?>
                                 <?php $this->insert('picture_default', $picture); ?>
                             <?php endif; ?>
                             <?php if ($col->caption): ?>
