@@ -72,15 +72,19 @@ final class FormRenderer
 
         $template = new FrontendTemplate($templateName);
         $template->setData($data);
-        $this->prepareTemplate($template);
+        $this->prepare($template);
 
         return $template->parse();
     }
 
     /**
-     * @param Template $template
+     * Prepare the template by adding grid related classes.
+     *
+     * @param Template $template The template.
+     *
+     * @return void
      */
-    public function prepareTemplate(Template $template): void
+    public function prepare(Template $template): void
     {
         $formLayout = $this->layoutManager->getDefaultLayout();
 

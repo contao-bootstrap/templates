@@ -1,4 +1,4 @@
-<?= $this->getContainer()->get('contao_bootstrap.templates.view.form_renderer')->prepareTemplate($this) ?>
+<?= $this->getContainer()->get('contao_bootstrap.templates.view.form_renderer')->prepare($this) ?>
 <!-- indexer::stop -->
 <div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
 
