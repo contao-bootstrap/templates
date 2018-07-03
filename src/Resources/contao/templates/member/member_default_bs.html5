@@ -1,4 +1,4 @@
-
+<?= $this->getContainer()->get('contao_bootstrap.templates.view.form_renderer')->prepareTemplate($this) ?>
 <!-- indexer::stop -->
 <div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
 
@@ -17,7 +17,11 @@
       <div class="fields">
         <?= $this->fields ?>
       </div>
-      <?= $this->getContainer()->get('contao_bootstrap.templates.view.form_renderer')->render('bs_member', $this->getData()) ?>
+      <div class="widget widget-submit <?= $this->rowClass ?>">
+        <?php if ($this->isHorizontal): ?><div class="<?= $this->colOffsetClass ?>"><?php endif ?>
+          <button type="submit" class="submit <?= $this->getContainer()->get('contao_bootstrap.templates.view.form_renderer')->getButtonClass() ?>"><?= $this->slabel ?></button>
+        <?php if ($this->isHorizontal): ?></div><?php endif ?>
+      </div>
     </div>
   </form>
 

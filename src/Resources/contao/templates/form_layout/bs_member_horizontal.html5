@@ -1,5 +1,0 @@
-<div class="widget widget-submit <?= $this->rowClass ?>">
-    <div class="<?= $this->colOffsetClass ?>">
-    <button type="submit" class="submit <?= $this->getContainer()->get('contao_bootstrap.templates.view.form_renderer')->getButtonClass() ?>"><?= $this->slabel ?></button>
-    </div>
-</div>
