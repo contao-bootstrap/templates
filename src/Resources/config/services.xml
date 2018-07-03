@@ -10,6 +10,8 @@
             <argument type="service" id="contao_bootstrap.environment" />
         </service>
 
-        <service id="contao_bootstrap.templates.view.gravatar" class="ContaoBootstrap\Templates\View\Gravatar" public="true" />
+        <service id="contao_bootstrap.templates.view.gravatar" class="ContaoBootstrap\Templates\View\Gravatar" public="true">
+            <argument type="service" id="contao_bootstrap.environment" />
+        </service>
     </services>
 </container>

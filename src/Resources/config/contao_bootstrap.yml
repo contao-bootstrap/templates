@@ -10,3 +10,6 @@ templates:
     mod_login:        mod_login_bs
     mod_search:       mod_search_bs
     pagination:       pagination_bs
+
+  gravatar:
+    default: mp

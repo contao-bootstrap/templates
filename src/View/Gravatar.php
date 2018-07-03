@@ -13,6 +13,8 @@
 
 namespace ContaoBootstrap\Templates\View;
 
+use ContaoBootstrap\Core\Environment;
+
 /**
  * Class Gravatar store basic gravatar methods for creating a gravatar.
  *
@@ -28,6 +30,23 @@ final class Gravatar
     protected static $baseUrl = 'https://www.gravatar.com/avatar/';
 
     /**
+     * Bootstrap environment.
+     *
+     * @var Environment
+     */
+    private $environment;
+
+    /**
+     * Gravatar constructor.
+     *
+     * @param Environment $environment Bootstrap environment.
+     */
+    public function __construct(Environment $environment)
+    {
+        $this->environment = $environment;
+    }
+
+    /**
      * Generate the gravatar url.
      *
      * @param string $email   The given email.
@@ -38,16 +57,14 @@ final class Gravatar
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    public static function generateUrl($email, $size = null, $default = null)
+    public function generateUrl($email, $size = null, $default = null)
     {
-        if ($size == null && isset($GLOBALS['TL_CONFIG']['gravatarSize'])) {
-            $size = $GLOBALS['TL_CONFIG']['gravatarSize'];
+        if ($size == null) {
+            $size = $this->environment->getConfig()->get(['templates', 'gravatar', 'size']);
         }
 
         if ($default == null) {
-            if (isset($GLOBALS['TL_CONFIG']['gravatarDefault'])) {
-                $default = $GLOBALS['TL_CONFIG']['gravatarDefault'];
-            }
+            $default = $this->environment->getConfig()->get(['templates', 'gravatar', 'default']);
         }
 
         $separator = '?';
