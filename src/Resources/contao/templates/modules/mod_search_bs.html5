@@ -4,7 +4,7 @@
 <?php $this->block('content'); ?>
   <form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> method="get">
     <div class="formbody">
-        <div class="widget widget-text">
+        <div class="widget widget-text form-group">
         <label for="ctrl_keywords_<?= $this->uniqueId ?>" class="invisible"><?= $this->keywordLabel ?></label>
         <div class="input-group">
           <input type="search" name="keywords" id="ctrl_keywords_<?= $this->uniqueId ?>" class="form-control text" value="<?= $this->keyword ?>">
@@ -12,8 +12,9 @@
             <button type="submit" id="ctrl_submit_<?= $this->uniqueId ?>" class="submit <?= $this->buttonClass ?>"><?= $this->search ?></button>
           </div>
         </div>
+    </div>
       <?php if ($this->advanced): ?>
-        <div class="widget widget-radio">
+        <div class="widget widget-radio form-group">
           <fieldset class="radio_container">
             <legend class="invisible"><?= $this->optionsLabel ?></legend>
               <div class="custom-control custom-radio custom-control-inline">
@@ -27,7 +28,6 @@
           </fieldset>
         </div>
       <?php endif; ?>
-        </div>
     </div>
   </form>
 
