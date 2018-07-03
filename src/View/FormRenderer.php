@@ -55,8 +55,8 @@ final class FormRenderer
     /**
      * Generate the form view.
      *
-     * @param string $templatePrefix
-     * @param array  $data
+     * @param string $templatePrefix The template prefix which gets an _horizontal or _default suffix.
+     * @param array  $data           Template data being used in the new template.
      *
      * @return string
      */

@@ -15,25 +15,25 @@ namespace ContaoBootstrap\Templates\View;
 
 /**
  * Class Gravatar store basic gravatar methods for creating a gravatar.
- * 
+ *
  * @package Netzmacht\Bootstrap
  */
 final class Gravatar
 {
     /**
      * Base gravator url.
-     * 
+     *
      * @var string
      */
-    protected static $baseUrl = 'http://www.gravatar.com/avatar/';
+    protected static $baseUrl = 'https://www.gravatar.com/avatar/';
 
     /**
      * Generate the gravatar url.
-     * 
+     *
      * @param string $email   The given email.
      * @param null   $size    Optional size.
      * @param null   $default Optional default image url.
-     *                        
+     *
      * @return string
      *
      * @SuppressWarnings(PHPMD.Superglobals)
