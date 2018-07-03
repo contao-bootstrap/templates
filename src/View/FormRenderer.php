@@ -88,7 +88,7 @@ final class FormRenderer
             $template->labelColClass  = $formLayout->getLabelColumnClass();
             $template->colClass       = $formLayout->getColumnClass();
             $template->colOffsetClass = $formLayout->getColumnClass(true);
-            $template->rowClass       = $this->environment->getConfig()->get('form.row_class', 'form-row');
+            $template->rowClass       = $formLayout->getRowClass();
             $template->isHorizontal   = true;
         } else {
             $template->labelColClass  = null;
