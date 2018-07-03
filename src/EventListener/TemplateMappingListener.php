@@ -56,13 +56,30 @@ final class TemplateMappingListener
      */
     public function onParseTemplate(Template $template): void
     {
-        if (!$this->environment->isEnabled() || $this->isAutoMappingDisabled()) {
+        if (!$this->environment->isEnabled()) {
+            return;
+        }
+
+        $this->initialize();
+        if ($this->isAutoMappingDisabled($template->getName())) {
             return;
         }
 
         $templateName = $this->getMappedTemplateName($template->getName());
         if ($templateName) {
             $template->setName($templateName);
+        }
+    }
+
+    /**
+     * Initialize the mapping configuration.
+     *
+     * @return void
+     */
+    private function initialize(): void
+    {
+        if ($this->mapping === null) {
+            $this->mapping = $this->environment->getConfig()->get('templates.mapping', []);
         }
     }
 
@@ -75,12 +92,12 @@ final class TemplateMappingListener
      */
     private function getMappedTemplateName(string $templateName): ?string
     {
-        if ($this->mapping === null) {
-            $this->mapping = $this->environment->getConfig()->get('templates.mapping', []);
+        if (isset($this->mapping['mandatory'][$templateName])) {
+            return $this->mapping['mandatory'][$templateName];
         }
 
-        if (isset($this->mapping[$templateName])) {
-            return $this->mapping[$templateName];
+        if (isset($this->mapping['optional'][$templateName])) {
+            return $this->mapping['optional'][$templateName];
         }
 
         return null;
@@ -89,10 +106,16 @@ final class TemplateMappingListener
     /**
      * Check if template auto mapping is disabled.
      *
+     * @param string $templateName The template name.
+     *
      * @return bool
      */
-    private function isAutoMappingDisabled(): bool
+    private function isAutoMappingDisabled(string $templateName): bool
     {
+        if (isset($this->mapping['mandatory'][$templateName])) {
+            return false;
+        }
+
         return !$this->environment->getConfig()->get('templates.auto_mapping', true);
     }
 }

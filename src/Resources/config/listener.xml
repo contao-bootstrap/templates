@@ -9,7 +9,7 @@
             <argument type="service" id="contao_bootstrap.environment" />
         </service>
 
-        <service id="ContaoBootstrap\Templates\EventListener\GravatarConfigurationListener">
+        <service id="ContaoBootstrap\Templates\EventListener\ThemeConfigurationListener">
             <tag name="kernel.event_listener" event="contao_bootstrap.core.build_context_config" method="onBuildContextConfig" />
         </service>
     </services>
