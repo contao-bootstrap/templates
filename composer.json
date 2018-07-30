@@ -27,7 +27,8 @@
     },
     "require-dev": {
         "contao/manager-plugin": "^2.1",
-        "phpcq/all-tasks": "^1.2"
+        "phpcq/all-tasks": "^1.2",
+        "php-http/guzzle6-adapter": "^1.1"
     },
     "autoload": {
         "psr-4": { "ContaoBootstrap\\Templates\\": "src/" }
