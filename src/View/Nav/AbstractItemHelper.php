@@ -126,5 +126,9 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
                 $this->itemClass[] = 'active';
             }
         }
+
+        if ($this->item['isActive'] && !in_array('active', $this->itemClass)) {
+            $this->itemClass[] = 'active';
+        }
     }
 }
