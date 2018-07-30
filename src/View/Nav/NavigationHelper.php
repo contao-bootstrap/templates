@@ -74,6 +74,7 @@ class NavigationHelper
 
         if ($this->level === 1) {
             $this->tag = 'ul';
+            $attributes->addClass('nav');
 
             if ($navClass) {
                 $attributes->addClass($navClass);
