@@ -22,4 +22,4 @@ use ContaoBootstrap\Templates\EventListener\TemplateMappingListener;
 
 $GLOBALS['TL_HOOKS']['parseTemplate'][]    = [TemplateMappingListener::class, 'onParseTemplate'];
 $GLOBALS['TL_HOOKS']['parseTemplate'][]    = [NavClassListener::class, 'onParseTemplate'];
-$GLOBALS['TL_HOOKS']['isVisibleElement'][] = [NavClassListener::class, 'isVisibleElement'];
+$GLOBALS['TL_HOOKS']['isVisibleElement'][] = [NavClassListener::class, 'onIsVisibleElement'];
