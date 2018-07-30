@@ -12,5 +12,7 @@
         <service id="ContaoBootstrap\Templates\EventListener\ThemeConfigurationListener">
             <tag name="kernel.event_listener" event="contao_bootstrap.core.build_context_config" method="onBuildContextConfig" />
         </service>
+
+        <service id="ContaoBootstrap\Templates\EventListener\NavClassListener" public="true" />
     </services>
 </container>
