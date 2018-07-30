@@ -62,6 +62,10 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
             }
         } else {
             $this->setAttribute('itemprop', 'name');
+
+            if ($this->item['isActive']) {
+                $this->addClass('active');
+            }
         }
 
         $attributes = array('accesskey', 'tabindex', 'target');
@@ -125,10 +129,6 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
             if (in_array('trail', $this->itemClass)) {
                 $this->itemClass[] = 'active';
             }
-        }
-
-        if ($this->item['isActive'] && !in_array('active', $this->itemClass)) {
-            $this->itemClass[] = 'active';
         }
     }
 }
