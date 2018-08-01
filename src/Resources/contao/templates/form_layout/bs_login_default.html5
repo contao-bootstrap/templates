@@ -1,0 +1,39 @@
+<form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> id="<?= $this->formId ?>" method="post">
+    <div class="formbody">
+        <?php if ($this->message): ?>
+            <p class="error"><?= $this->message ?></p>
+        <?php endif; ?>
+        <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formId ?>">
+        <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+        <input type="hidden" name="_target_path" value="<?= $this->targetPath ?>">
+        <?php if ($this->logout): ?>
+            <p class="login_info"><?= $this->loggedInAs ?><br><?= $this->lastLogin ?></p>
+        <?php else: ?>
+            <input type="hidden" name="_failure_path" value="<?= $this->failurePath ?>">
+            <input type="hidden" name="_always_use_target_path" value="<?= $this->forceTargetPath ?>">
+            <div class="widget form-group widget-text">
+                <label for="username"><?= $this->username ?></label>
+                <input type="text" name="username" id="username" class="text form-control" value="<?= $this->value ?>"
+                       required>
+            </div>
+            <div class="widget form-group widget-password">
+                <label for="password"><?= $this->password ?></label>
+                <input type="password" name="password" id="password" class="text form-control password" value=""
+                       required>
+            </div>
+            <?php if ($this->autologin): ?>
+                <div class="widget form-group widget-checkbox">
+                    <fieldset class="checkbox_container">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="autologin" class="custom-control-input" id="autologin">
+                            <label class="custom-control-label" for="autologin"><?= $this->autoLabel ?></label>
+                        </div>
+                    </fieldset>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+        <div class="widget form-group widget-submit">
+            <button type="submit" class="submit <?= $this->buttonClass ?>"><?= $this->slabel ?></button>
+        </div>
+    </div>
+</form>

@@ -1,7 +1,0 @@
-<?php
-
-if (version_compare(VERSION, '3.4', '>=')) {
-    include $this->getTemplate('gallery_carousel_34');
-} else {
-    include $this->getTemplate('gallery_carousel_33');
-}

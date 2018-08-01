@@ -1,0 +1,32 @@
+
+<div id="carousel_<?= $this->id ?>" class="carousel slide" data-ride="carousel"  itemscope itemtype="http://schema.org/ImageGallery">
+    <div class="carousel-inner">
+        <?php foreach ($this->body as $class=>$row): ?>
+            <?php foreach ($row as $col): ?>
+                <?php if ($col->addImage): ?>
+                    <div class="carousel-item<?php if ($class === 'row_0 row_first even' && $col->class === 'col_0 col_first'): ?> active<?php endif ?> <?= $class ?> <?= $col->class ?>">
+                        <figure class="image_container"<?php if ($col->margin): ?> style="<?= $col->margin ?>"<?php endif; ?>>
+                            <?php if ($col->href): ?>
+                                <a href="<?= $col->href ?>"<?= $col->attributes ?><?php if ($col->linkTitle) echo ' title="' . $col->linkTitle . '"'; ?>><?php $this->insert('picture_default', $col->picture); ?></a>
+                            <?php else: ?>
+                                <?php $picture = $col->picture; $picture['img']['class'] = 'd-block w-100 img-fluid' ?>
+                                <?php $this->insert('picture_default', $picture); ?>
+                            <?php endif; ?>
+                            <?php if ($col->caption): ?>
+                                <figcaption class="caption carousel-caption d-none d-md-block"><?= $col->caption ?></figcaption>
+                            <?php endif; ?>
+                        </figure>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endforeach; ?>
+    </div>
+    <a class="carousel-control-prev" href="#carousel_<?= $this->id ?>" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel_<?= $this->id ?>" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
