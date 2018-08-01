@@ -2,13 +2,13 @@
     "name":"contao-bootstrap/templates",
     "description":"Modified Contao templates supporting Bootstrap markup",
     "keywords":["bootstrap", "templates", "contao"],
-    "type":"contao-module",
-    "license":"LGPL-3.0+",
+    "type":"contao-bundle",
+    "license":"LGPL-3.0-or-later",
     "authors":[
         {
             "name":"David Molineus",
             "email":"mail@netzmacht.de",
-            "homepage":"http://www.netzmacht.de",
+            "homepage":"https://netzmacht.de",
             "role":"Project leader"
         }
     ],
@@ -19,37 +19,34 @@
         "source":"https://github.com/contao-bootstrap/templates"
     },
     "require":{
-        "php":">=5.3.4",
-        "contao/core": ">=3.2,<3.6",
-        "contao-community-alliance/composer-plugin": "~2.0",
-        "contao-bootstrap/core": "~1.0"
+        "php":">=7.1",
+        "contao/core-bundle": "~4.4",
+        "contao-bootstrap/core": "^2.0.0",
+        "contao-bootstrap/form": "^2.1.1",
+        "netzmacht/contao-form-designer": "^1.1.0"
     },
     "require-dev": {
-        "netzmacht/contao-build-tools": "~1.1"
-    },
-    "conflict": {
-        "netzmacht/contao-bootstrap": "*"
+        "contao/manager-plugin": "^2.1",
+        "phpcq/all-tasks": "^1.2",
+        "php-http/guzzle6-adapter": "^1.1"
     },
     "autoload": {
-        "psr-0": { "Netzmacht\\Bootstrap\\Templates": "src/" }
+        "psr-4": { "ContaoBootstrap\\Templates\\": "src/" }
     },
     "extra":{
+        "contao-manager-plugin": "ContaoBootstrap\\Templates\\ContaoManager\\Plugin",
         "contao": {
-            "sources":{
-                "module": "system/modules/bootstrap-templates"
-            },
             "transifex": {
                 "project": "contao-bootstrap",
                 "prefix": "templates-",
-                "languages_cto": "module/languages",
+                "languages_cto": "src/Resources/contao/languages",
                 "languages_tx": ".tx"
             }
         },
         "branch-alias": {
-            "dev-master": "1.0.x-dev",
-            "dev-develop": "1.1.x-dev"
+            "dev-master": "2.0.x-dev",
+            "dev-develop": "2.1.x-dev",
+            "dev-support/1.0.x": "1.0.x-dev"
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

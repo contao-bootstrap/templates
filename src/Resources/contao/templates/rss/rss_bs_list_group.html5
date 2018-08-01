@@ -1,0 +1,26 @@
+
+<!-- indexer::stop -->
+<div class="<?= $this->class ?> card block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+
+    <?php $this->block('headline'); ?>
+    <?php if ($this->headline): ?>
+    <<?= $this->hl ?> class="card-header"><?= $this->headline ?></<?= $this->hl ?>>
+<?php endif; ?>
+<?php $this->endblock(); ?>
+
+<?php $this->block('content'); ?>
+<div class="list-group list-group-flush">
+    <?php foreach ($this->items as $item): ?>
+        <a href="<?= $item['link'] ?>" class="list-group-item list-group-item-action rss_items_only<?= $item['class'] ?>" target="_blank" rel="noopener">
+            <h2 class="h4 mb-1"><?= $item['title'] ?></h2>
+            <p class="mb-0"><?= $item['description'] ?></p>
+        </a>
+    <?php endforeach; ?>
+</div>
+
+<?= $this->pagination ?>
+
+<?php $this->endblock(); ?>
+
+</div>
+<!-- indexer::continue -->
