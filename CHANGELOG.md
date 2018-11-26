@@ -2,6 +2,13 @@
 Changelog
 =========
 
+2.1.0 (TBD)
+-----------
+
+[Full Changelog](https://github.com/contao-bootstrap/templates/compare/2.0.0...develop)
+
+ - Provide newsletter template `nl_bs`
+
 2.0.0 (2018-08-01)
 ------------------
 
