@@ -22,7 +22,6 @@ use ContaoCommunityAlliance\MetaPalettes\MetaPalettes;
 MetaPalettes::appendFields('tl_module', 'navigation', 'template', ['bs_nav_class']);
 MetaPalettes::appendFields('tl_module', 'customnav', 'template', ['bs_nav_class']);
 MetaPalettes::appendFields('tl_module', 'quicklink', 'template', ['bs_nav_class']);
-MetaPalettes::appendFields('tl_module', 'subscribe', 'template', ['formLayout']);
 
 /*
  * Fields
