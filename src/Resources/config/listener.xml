@@ -14,5 +14,9 @@
         </service>
 
         <service id="ContaoBootstrap\Templates\EventListener\NavClassListener" public="true" />
+
+        <service id="ContaoBootstrap\Templates\View\Template\ReplaceImageClassesFilter">
+            <tag name="contao_bootstrap.pre_render_filter" />
+        </service>
     </services>
 </container>

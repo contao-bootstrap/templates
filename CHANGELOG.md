@@ -7,7 +7,10 @@ Changelog
 
 [Full Changelog](https://github.com/contao-bootstrap/templates/compare/2.0.0...develop)
 
+### Added
+
  - Provide newsletter template `nl_bs`
+ - Button classes are insert at a tag for hyperlink elements (See #22)
 
 2.0.0 (2018-08-01)
 ------------------
