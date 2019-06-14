@@ -1,5 +1,5 @@
 
-<?php $grid = floor(12/$this->perRow); ?>
+<?php $grid = floor(\Contao\System::getContainer()->get('contao_bootstrap.environment')->getConfig()->get('grid.columns', 12)/$this->perRow); ?>
 <?php foreach ($this->body as $class=>$row): ?>
     <div class="row" itemscope itemtype="http://schema.org/ImageGallery">
         <?php foreach ($row as $col): ?>
