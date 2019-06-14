@@ -1,11 +1,14 @@
 Bootstrap 4 Contao Templates Component
 ======================================
 
-[![Build Status](http://img.shields.io/travis/contao-bootstrap/templates/master.svg?style=flat-square)](https://travis-ci.org/contao-bootstrap/templates)
-[![Version](http://img.shields.io/packagist/v/contao-bootstrap/templates.svg?style=flat-square)](http://packagist.com/packages/contao-bootstrap/templates)
-[![License](http://img.shields.io/packagist/l/contao-bootstrap/templates.svg?style=flat-square)](http://packagist.com/packages/contao-bootstrap/templates)
-[![Downloads](http://img.shields.io/packagist/dt/contao-bootstrap/templates.svg?style=flat-square)](http://packagist.com/packages/contao-bootstrap/templates)
-[![Contao Community Alliance coding standard](http://img.shields.io/badge/cca-coding_standard-red.svg?style=flat-square)](https://github.com/contao-community-alliance/coding-standard)
+[![Version](http://img.shields.io/packagist/v/contao-bootstrap/templates.svg?style=for-the-badge&label=Latest)](http://packagist.org/packages/contao-bootstrap/templates)
+[![GitHub issues](https://img.shields.io/github/issues/contao-bootstrap/templates.svg?style=for-the-badge&logo=github)](https://github.com/contao-bootstrap/templates/issues)
+[![License](http://img.shields.io/packagist/l/contao-bootstrap/templates.svg?style=for-the-badge&label=License)](http://packagist.org/packages/contao-bootstrap/templates)
+[![Build Status](http://img.shields.io/travis/contao-bootstrap/templates/master.svg?style=for-the-badge&logo=travis)](https://travis-ci.org/contao-bootstrap/templates)
+[![Downloads](http://img.shields.io/packagist/dt/contao-bootstrap/templates.svg?style=for-the-badge&label=Downloads)](http://packagist.org/packages/contao-bootstrap/templates)
+
+Features
+--------
 
 This extension provides several Bootstrap 4 based templates Contao CMS.
 
@@ -36,3 +39,31 @@ Following templates are provided:
  - `gallery_bs_grid` for a grid based gallery.
  - `nav_default` as navigation templates.
  - `rss_bs_list_group` rss feed rendered as list group.
+
+
+Changelog
+---------
+
+See [changelog](CHANGELOG.md)
+
+Requirements
+------------
+
+ - PHP 7.1
+ - Contao ~4.4
+ 
+Install
+-------
+
+### Managed edition
+
+When using the managed edition it's pretty simple to install the package. Just search for the package in the
+Contao Manager and install it. Alternatively you can use the CLI.  
+
+```bash
+# Using the contao manager
+$ php contao-manager.phar.php composer require contao-bootstrap/templates~2.0
+
+# Using composer directly
+$ php composer.phar require contao-bootstrap/templates~2.0
+```

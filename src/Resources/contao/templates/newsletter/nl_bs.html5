@@ -1,0 +1,7 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<?= $this->getContainer()->get('contao_bootstrap.templates.view.form_renderer')->render('bs_newsletter', $this->getData()) ?>
+
+<?php $this->endblock(); ?>
