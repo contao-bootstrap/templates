@@ -2,10 +2,10 @@
 Changelog
 =========
 
-2.1.0 (TBD)
------------
+2.1.0 (2019-06-19)
+------------------
 
-[Full Changelog](https://github.com/contao-bootstrap/templates/compare/2.0.0...develop)
+[Full Changelog](https://github.com/contao-bootstrap/templates/compare/2.0.0...2.1.0)
 
 ### Added
 

@@ -30,9 +30,8 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.0.x-dev",
-            "dev-develop": "2.1.x-dev",
-            "dev-support/1.0.x": "1.0.x-dev"
+            "dev-master": "2.1.x-dev",
+            "dev-develop": "2.2.x-dev"
         },
         "contao": {
             "transifex": {
@@ -52,7 +51,7 @@
     "support": {
         "email": "mail@netzmacht.de",
         "issues": "https://github.com/contao-bootstrap/templates/issues",
-        "wiki": "http://contao-bootstrap.netzmacht.de",
+        "wiki": "https://contao-bootstrap.de",
         "source": "https://github.com/contao-bootstrap/templates"
     }
 }
