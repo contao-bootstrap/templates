@@ -2,6 +2,17 @@
 Changelog
 =========
 
+2.2.0 (2021-04-01)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/templates/compare/2.1.0...2.2.0)
+
+### Added
+
+ - Add `mod_changePassword_bs` template
+ - Add `mod_lostPassword_bs` template
+ - Add `mod_password_bs` template
+
 2.1.0 (2019-06-19)
 ------------------
 
