@@ -31,14 +31,14 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
      *
      * @var array
      */
-    protected $item;
+    protected array $item;
 
     /**
      * Item classes.
      *
      * @var array
      */
-    protected $itemClass = array();
+    protected array $itemClass = array();
 
     /**
      * AbstractItemHelper constructor.

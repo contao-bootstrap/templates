@@ -32,28 +32,28 @@ class NavigationHelper
      *
      * @var FrontendTemplate
      */
-    private $template;
+    private FrontendTemplate $template;
 
     /**
      * List attributes.
      *
      * @var Attributes
      */
-    private $attributes;
+    private Attributes $attributes;
 
     /**
      * Html tag.
      *
      * @var string
      */
-    private $tag;
+    private string $tag;
 
     /**
      * Navigation level.
      *
      * @var int
      */
-    private $level;
+    private int $level;
 
     /**
      * NavigationHelper constructor.

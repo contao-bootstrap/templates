@@ -27,14 +27,14 @@ final class Gravatar
      *
      * @var string
      */
-    protected static $baseUrl = 'https://www.gravatar.com/avatar/';
+    protected static string $baseUrl = 'https://www.gravatar.com/avatar/';
 
     /**
      * Bootstrap environment.
      *
      * @var Environment
      */
-    private $environment;
+    private Environment $environment;
 
     /**
      * Gravatar constructor.

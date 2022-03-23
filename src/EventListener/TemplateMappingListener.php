@@ -28,14 +28,14 @@ final class TemplateMappingListener
      *
      * @var Environment
      */
-    private $environment;
+    private Environment $environment;
 
     /**
      * Template name mapping.
      *
      * @var array|null
      */
-    private $mapping;
+    private ?array $mapping;
 
     /**
      * TemplateMappingListener constructor.

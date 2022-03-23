@@ -31,14 +31,14 @@ final class FormRenderer
      *
      * @var LayoutManager
      */
-    private $layoutManager;
+    private LayoutManager $layoutManager;
 
     /**
      * Bootstrap environment.
      *
      * @var Environment
      */
-    private $environment;
+    private Environment $environment;
 
     /**
      * FormRenderer constructor.

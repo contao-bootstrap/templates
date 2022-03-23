@@ -30,7 +30,7 @@ final class NavClassListener
      *
      * @var string
      */
-    private $navClass;
+    private string $navClass;
 
     /**
      * Check if a module is loaded which make use the bs_nav_class value.

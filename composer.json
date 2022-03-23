@@ -14,13 +14,19 @@
             "email": "mail@netzmacht.de",
             "homepage": "https://netzmacht.de",
             "role": "Project leader"
+        },
+        {
+            "name": "Alexander Kehr",
+            "email": "info@kehr-solutions.de",
+            "homepage": "https://www.kehr-solutions.de",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": ">=7.1",
+        "php": "^7.1",
         "contao-bootstrap/core": "^2.0.0",
         "contao-bootstrap/form": "^2.1.1",
-        "contao/core-bundle": "^4.4",
+        "contao/core-bundle": "^4.9",
         "netzmacht/contao-form-designer": "^1.1.0"
     },
     "require-dev": {
