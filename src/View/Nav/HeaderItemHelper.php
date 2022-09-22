@@ -1,15 +1,6 @@
 <?php
 
-/**
- * Contao Bootstrap templates.
- *
- * @package    contao-bootstrap
- * @subpackage Templates
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2014-2018 netzmacht David Molineus. All rights reserved.
- * @license    https://github.com/contao-bootstrap/templates/blob/master/LICENSE LGPL 3.0-or-later
- * @filesource
- */
+declare(strict_types=1);
 
 namespace ContaoBootstrap\Templates\View\Nav;
 
@@ -17,29 +8,27 @@ use Contao\StringUtil;
 use Netzmacht\Html\Attributes;
 use Netzmacht\Html\Exception\InvalidArgumentException;
 
-/**
- * Class HeaderItemHelper creates the header navigation item.
- */
+use function implode;
+use function in_array;
+
 final class HeaderItemHelper extends Attributes implements ItemHelper
 {
     /**
      * Current item.
      *
-     * @var array
+     * @var array<string,mixed>
      */
     protected array $item;
 
     /**
      * Item classes.
      *
-     * @var array
+     * @var list<string>
      */
-    protected array $itemClass = array();
+    protected array $itemClass = [];
 
     /**
-     * AbstractItemHelper constructor.
-     *
-     * @param array $item Navigation item.
+     * @param array<string,mixed> $item Navigation item.
      *
      * @throws InvalidArgumentException When invalid attributes are given.
      */
@@ -53,9 +42,6 @@ final class HeaderItemHelper extends Attributes implements ItemHelper
         $this->initializeItemClasses();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getItemClass(): string
     {
         return implode(' ', $this->itemClass);
@@ -69,38 +55,34 @@ final class HeaderItemHelper extends Attributes implements ItemHelper
         return $this->itemClass;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTag(): string
     {
         return 'div';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function hasDivider(): bool
     {
-        return !in_array('first', $this->getItemClassAsArray());
+        return ! in_array('first', $this->getItemClassAsArray());
     }
 
     /**
      * Initialize the item classes.
-     *
-     * @return void
      */
     private function initializeItemClasses(): void
     {
-        if ($this->item['class']) {
-            $classes = StringUtil::trimsplit(' ', $this->item['class']);
-            foreach ($classes as $class) {
-                $this->itemClass[] = $class;
-            }
-
-            if (in_array('trail', $this->itemClass)) {
-                $this->itemClass[] = 'active';
-            }
+        if (! $this->item['class']) {
+            return;
         }
+
+        $classes = StringUtil::trimsplit(' ', $this->item['class']);
+        foreach ($classes as $class) {
+            $this->itemClass[] = $class;
+        }
+
+        if (! in_array('trail', $this->itemClass)) {
+            return;
+        }
+
+        $this->itemClass[] = 'active';
     }
 }

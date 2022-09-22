@@ -1,63 +1,79 @@
 {
-    "name": "contao-bootstrap/templates",
-    "type": "contao-bundle",
-    "description": "Modified Contao templates supporting Bootstrap markup",
-    "keywords": [
-        "bootstrap",
-        "templates",
-        "contao"
-    ],
-    "license": "LGPL-3.0-or-later",
-    "authors": [
-        {
-            "name": "David Molineus",
-            "email": "mail@netzmacht.de",
-            "homepage": "https://netzmacht.de",
-            "role": "Project leader"
-        },
-        {
-            "name": "Alexander Kehr",
-            "email": "info@kehr-solutions.de",
-            "homepage": "https://www.kehr-solutions.de",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": "^7.1",
-        "contao-bootstrap/core": "^2.0.0",
-        "contao-bootstrap/form": "^2.1.1",
-        "contao/core-bundle": "^4.9",
-        "netzmacht/contao-form-designer": "^1.1.0"
+  "name": "contao-bootstrap/templates",
+  "description": "Modified Contao templates supporting Bootstrap markup",
+  "license": "LGPL-3.0-or-later",
+  "type": "contao-bundle",
+  "keywords": [
+    "bootstrap",
+    "templates",
+    "contao"
+  ],
+  "authors": [
+    {
+      "name": "David Molineus",
+      "email": "mail@netzmacht.de",
+      "homepage": "https://netzmacht.de",
+      "role": "Project leader"
     },
-    "require-dev": {
-        "contao/manager-plugin": "^2.1",
-        "php-http/guzzle6-adapter": "^1.1",
-        "phpcq/all-tasks": "^1.2"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.2.x-dev",
-            "dev-develop": "2.3.x-dev"
-        },
-        "contao": {
-            "transifex": {
-                "project": "contao-bootstrap",
-                "prefix": "templates-",
-                "languages_cto": "src/Resources/contao/languages",
-                "languages_tx": ".tx"
-            }
-        },
-        "contao-manager-plugin": "ContaoBootstrap\\Templates\\ContaoManager\\Plugin"
-    },
-    "autoload": {
-        "psr-4": {
-            "ContaoBootstrap\\Templates\\": "src/"
-        }
-    },
-    "support": {
-        "email": "mail@netzmacht.de",
-        "issues": "https://github.com/contao-bootstrap/templates/issues",
-        "wiki": "https://contao-bootstrap.de",
-        "source": "https://github.com/contao-bootstrap/templates"
+    {
+      "name": "Alexander Kehr",
+      "email": "info@kehr-solutions.de",
+      "homepage": "https://www.kehr-solutions.de",
+      "role": "Developer"
     }
+  ],
+  "support": {
+    "email": "mail@netzmacht.de",
+    "issues": "https://github.com/contao-bootstrap/templates/issues",
+    "wiki": "https://contao-bootstrap.de",
+    "source": "https://github.com/contao-bootstrap/templates"
+  },
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "contao-bootstrap/core": "^2.0.0",
+    "contao-bootstrap/form": "^2.1.1",
+    "contao-community-alliance/meta-palettes": "^2.0.9",
+    "contao/core-bundle": "^4.9",
+    "netzmacht/contao-form-designer": "^1.1.0",
+    "netzmacht/html": "^2.0.2",
+    "symfony/config": "~4.4 || ^5.4",
+    "symfony/dependency-injection": "~4.4 || ^5.4",
+    "symfony/http-kernel": "~4.4 || ^5.4"
+  },
+  "require-dev": {
+    "contao/manager-plugin": "^2.1",
+    "doctrine/coding-standard": "^9.0",
+    "phpcq/coding-standard": "^2.1.2",
+    "phpcq/runner-bootstrap": "1.x-dev"
+  },
+  "conflict": {
+    "contao/manager-plugin": "<2.1 || >= 3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ContaoBootstrap\\Templates\\": "src/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "contao-components/installer": true,
+      "contao/manager-plugin": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-develop": "2.3.x-dev",
+      "dev-master": "2.2.x-dev"
+    },
+    "contao": {
+      "transifex": {
+        "languages_cto": "src/Resources/contao/languages",
+        "languages_tx": ".tx",
+        "prefix": "templates-",
+        "project": "contao-bootstrap"
+      }
+    },
+    "contao-manager-plugin": "ContaoBootstrap\\Templates\\ContaoManager\\Plugin"
+  }
 }
