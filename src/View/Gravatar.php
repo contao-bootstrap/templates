@@ -25,13 +25,13 @@ final class Gravatar
     /**
      * Generate the gravatar url.
      *
-     * @param string $email   The given email.
-     * @param null   $size    Optional size.
-     * @param null   $default Optional default image url.
+     * @param string      $email   The given email.
+     * @param string|null $size    Optional size.
+     * @param string|null $default Optional default image url.
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    public function generateUrl($email, $size = null, $default = null): string
+    public function generateUrl(string $email, ?string $size = null, ?string $default = null): string
     {
         if ($size === null) {
             $size = $this->environment->getConfig()->get(['templates', 'gravatar', 'size']);

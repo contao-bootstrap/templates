@@ -71,13 +71,11 @@ class NavigationHelper
      *
      * @param FrontendTemplate $template Frontend template.
      *
-     * @return static
-     *
      * @throws InvalidArgumentException When invalid attributes ar given.
      */
     public static function createForTemplate(FrontendTemplate $template): self
     {
-        return new static($template, (string) $template->navClass);
+        return new self($template, (string) $template->navClass);
     }
 
     /**
@@ -129,8 +127,14 @@ class NavigationHelper
     /**
      * Get the page type of the current navigation page.
      */
-    private function getPageType(): string
+    private function getPageType(): ?string
     {
-        return (string) PageModel::findByPk($this->template->pid)->type;
+        $page = PageModel::findByPk($this->template->pid);
+
+        if ($page instanceof PageModel) {
+            return $page->type;
+        }
+
+        return null;
     }
 }

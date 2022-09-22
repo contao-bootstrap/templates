@@ -9,4 +9,20 @@
     <projectFiles>
         <directory name="src"/>
     </projectFiles>
+
+    <issueHandlers>
+        <UndefinedDocblockClass>
+            <errorLevel type="suppress">
+                <referencedClass name="UnitEnum"/>
+            </errorLevel>
+        </UndefinedDocblockClass>
+    </issueHandlers>
+
+    <universalObjectCrates>
+        <class name="Contao\FrontendTemplate"/>
+        <class name="Contao\Model"/>
+        <class name="Contao\ModuleModel"/>
+        <class name="Contao\Template"/>
+        <class name="Contao\ThemeModel"/>
+    </universalObjectCrates>
 </psalm>

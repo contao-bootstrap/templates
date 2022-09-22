@@ -44,6 +44,6 @@ final class ReplaceImageClassesFilter implements PreRenderFilter
         array_unshift($btnClasses, 'btn');
 
         $template->class          = implode(' ', $cssClasses);
-        $template->hyperlinkClass = $btnClasses ? ' ' . implode(' ', array_unique($btnClasses)) : '';
+        $template->hyperlinkClass = ' ' . implode(' ', array_unique($btnClasses));
     }
 }

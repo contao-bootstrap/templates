@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Templates\View\Nav;
 
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class NavItemHelper extends AbstractItemHelper
 {
     /**
