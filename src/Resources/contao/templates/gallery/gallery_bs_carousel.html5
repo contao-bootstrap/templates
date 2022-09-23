@@ -1,22 +1,24 @@
 
-<div id="carousel_<?= $this->id ?>" class="carousel slide" data-ride="carousel"  itemscope itemtype="http://schema.org/ImageGallery">
+<div id="carousel_<?= $this->id ?>" class="carousel slide" data-ride="carousel"  itemscope itemtype="https://schema.org/ImageGallery">
     <div class="carousel-inner">
+        <?php $first = true ?>
         <?php foreach ($this->body as $class=>$row): ?>
             <?php foreach ($row as $col): ?>
                 <?php if ($col->addImage): ?>
-                    <div class="carousel-item<?php if ($class === 'row_0 row_first even' && $col->class === 'col_0 col_first'): ?> active<?php endif ?> <?= $class ?> <?= $col->class ?>">
+                    <div class="carousel-item<?php if ($first): ?> active<?php endif ?> <?= $class ?> <?= $col->class ?>">
                         <figure class="image_container"<?php if ($col->margin): ?> style="<?= $col->margin ?>"<?php endif; ?>>
-                            <?php if ($col->href): ?>
+                            <?php if (isset($col->href)): ?>
                                 <a href="<?= $col->href ?>"<?= $col->attributes ?><?php if ($col->linkTitle) echo ' title="' . $col->linkTitle . '"'; ?>><?php $this->insert('picture_default', $col->picture); ?></a>
                             <?php else: ?>
                                 <?php $picture = $col->picture; $picture['img']['class'] = 'd-block w-100 img-fluid' ?>
                                 <?php $this->insert('picture_default', $picture); ?>
                             <?php endif; ?>
-                            <?php if ($col->caption): ?>
+                            <?php if (isset($col->caption)): ?>
                                 <figcaption class="caption carousel-caption d-none d-md-block"><?= $col->caption ?></figcaption>
                             <?php endif; ?>
                         </figure>
                     </div>
+                    <?php $first = false ?>
                 <?php endif; ?>
             <?php endforeach; ?>
         <?php endforeach; ?>
