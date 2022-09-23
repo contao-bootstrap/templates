@@ -5,18 +5,19 @@
         http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="ContaoBootstrap\Templates\EventListener\TemplateMappingListener" public="true">
-            <argument type="service" id="contao_bootstrap.environment" />
+        <service id="ContaoBootstrap\Templates\EventListener\TemplateMappingListener">
+            <argument type="service" id="contao_bootstrap.environment"/>
         </service>
 
         <service id="ContaoBootstrap\Templates\EventListener\ThemeConfigurationListener">
-            <tag name="kernel.event_listener" event="contao_bootstrap.core.build_context_config" method="onBuildContextConfig" />
+            <tag name="kernel.event_listener" event="contao_bootstrap.core.build_context_config"
+                 method="onBuildContextConfig"/>
         </service>
 
-        <service id="ContaoBootstrap\Templates\EventListener\NavClassListener" public="true" />
+        <service id="ContaoBootstrap\Templates\EventListener\NavClassListener"/>
 
         <service id="ContaoBootstrap\Templates\View\Template\ReplaceImageClassesFilter">
-            <tag name="contao_bootstrap.pre_render_filter" />
+            <tag name="contao_bootstrap.pre_render_filter"/>
         </service>
     </services>
 </container>
