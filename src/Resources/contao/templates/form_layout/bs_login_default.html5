@@ -46,7 +46,7 @@
         <div class="widget form-group widget-submit">
             <button type="submit" class="submit <?= $this->buttonClass ?>"><?= $this->slabel ?></button>
             <?php if ($this->twoFactorEnabled): ?>
-              <a href="<?= $this->route('contao_frontend_logout') ?>"><?= $this->cancel ?> ›</a>
+              <a href="<?= $this->route('contao_frontend_logout') ?>" class="btn btn-link"><?= $this->cancel ?></a>
             <?php endif; ?>
         </div>
     </div>
