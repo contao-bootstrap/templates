@@ -7,19 +7,14 @@ namespace ContaoBootstrap\Templates\View;
 use Contao\FrontendTemplate;
 use Contao\Template;
 use ContaoBootstrap\Core\Environment;
+use ContaoBootstrap\Form\FormLayout\DefaultFormLayout;
 use ContaoBootstrap\Form\FormLayout\HorizontalFormLayout;
 use Netzmacht\Contao\FormDesigner\LayoutManager;
 
 final class FormRenderer
 {
-    private LayoutManager $layoutManager;
-
-    private Environment $environment;
-
-    public function __construct(LayoutManager $layoutManager, Environment $environment)
+    public function __construct(private LayoutManager $layoutManager, private Environment $environment)
     {
-        $this->layoutManager = $layoutManager;
-        $this->environment   = $environment;
     }
 
     /**
@@ -58,13 +53,13 @@ final class FormRenderer
             $template->labelColClass  = $formLayout->getLabelColumnClass();
             $template->colClass       = $formLayout->getColumnClass();
             $template->colOffsetClass = $formLayout->getColumnClass(true);
-            $template->rowClass       = $formLayout->getRowClass();
+            $template->rowClass       = $formLayout->getRowClass() . ' ' . $formLayout->getMargin();
             $template->isHorizontal   = true;
         } else {
             $template->labelColClass  = null;
             $template->colClass       = null;
             $template->colOffsetClass = null;
-            $template->rowClass       = null;
+            $template->rowClass       = $formLayout instanceof DefaultFormLayout ? $formLayout->getMargin() : null;
             $template->isHorizontal   = false;
         }
 
@@ -77,6 +72,6 @@ final class FormRenderer
      */
     public function getButtonClass(): string
     {
-        return 'btn ' . $this->environment->getConfig()->get('form.buttons.submit', 'btn-default');
+        return 'btn ' . $this->environment->getConfig()->get(['form', 'buttons', 'submit'], 'btn-default');
     }
 }

@@ -21,12 +21,12 @@ final class ThemeConfigurationListener
      */
     public function onBuildContextConfig(BuildContextConfig $command): void
     {
-        $context = $command->getContext();
+        $context = $command->context;
         if (! $context instanceof ThemeContext) {
             return;
         }
 
-        $theme = ThemeModel::findByPk($context->getThemeId());
+        $theme = ThemeModel::findByPk($context->themeId);
         if (! $theme) {
             return;
         }
@@ -39,8 +39,7 @@ final class ThemeConfigurationListener
             return;
         }
 
-        $config = $command->getConfig()->merge(['templates' => $templateConfig]);
-        $command->setConfig($config);
+        $command->config = $command->config->merge(['templates' => $templateConfig]);
     }
 
     /**

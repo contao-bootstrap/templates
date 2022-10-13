@@ -19,9 +19,9 @@
           </div>
           <div class="widget form-group <?= $this->rowClass ?> widget-checkbox">
             <div class="<?= $this->colOffsetClass ?>">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" name="trusted" id="trusted" class="tl_checkbox custom-control-input" value="1">
-                <label for="trusted" class="custom-control-label"><?= $this->trans('MSC.twoFactorTrustDevice') ?></label>
+              <div class="form-check">
+                <input type="checkbox" name="trusted" id="trusted" class="tl_checkbox form-check-input" value="1">
+                <label for="trusted" class="form-check-label"><?= $this->trans('MSC.twoFactorTrustDevice') ?></label>
               </div>
             </div>
           </div>
@@ -43,9 +43,9 @@
             <?php if ($this->autologin): ?>
                 <div class="widget <?= $this->rowClass ?> form-group widget-checkbox">
                     <fieldset class="checkbox_container <?= $this->colOffsetClass ?>">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="autologin" class="custom-control-input" id="autologin">
-                            <label class="custom-control-label" for="autologin"><?= $this->autoLabel ?></label>
+                        <div class="form-check">
+                            <input type="checkbox" name="autologin" class="form-check-input" id="autologin">
+                            <label class="form-check-label" for="autologin"><?= $this->autoLabel ?></label>
                         </div>
                     </fieldset>
                 </div>

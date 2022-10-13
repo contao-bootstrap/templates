@@ -15,11 +15,8 @@ final class Gravatar
 {
     private const BASE_URL = 'https://www.gravatar.com/avatar/';
 
-    private Environment $environment;
-
-    public function __construct(Environment $environment)
+    public function __construct(private Environment $environment)
     {
-        $this->environment = $environment;
     }
 
     /**
@@ -31,7 +28,7 @@ final class Gravatar
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    public function generateUrl(string $email, ?string $size = null, ?string $default = null): string
+    public function generateUrl(string $email, string|null $size = null, string|null $default = null): string
     {
         if ($size === null) {
             $size = $this->environment->getConfig()->get(['templates', 'gravatar', 'size']);
