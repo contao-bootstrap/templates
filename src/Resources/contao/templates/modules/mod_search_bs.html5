@@ -4,26 +4,24 @@
 <?php $this->block('content'); ?>
   <form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> method="get">
     <div class="formbody">
-        <div class="widget widget-text form-group">
+      <div class="widget widget-text form-group">
         <label for="ctrl_keywords_<?= $this->uniqueId ?>" class="invisible"><?= $this->keywordLabel ?></label>
         <div class="input-group">
           <input type="search" name="keywords" id="ctrl_keywords_<?= $this->uniqueId ?>" class="form-control text" value="<?= $this->keyword ?>">
-          <div class="input-group-append widget widget-submit">
             <button type="submit" id="ctrl_submit_<?= $this->uniqueId ?>" class="submit <?= $this->buttonClass ?>"><?= $this->search ?></button>
-          </div>
         </div>
-    </div>
+      </div>
       <?php if ($this->advanced): ?>
         <div class="widget widget-radio form-group">
           <fieldset class="radio_container">
             <legend class="invisible"><?= $this->optionsLabel ?></legend>
-              <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" name="query_type" id="matchAll_<?= $this->uniqueId ?>" class="custom-control-input radio" value="and"<?php if ($this->queryType == 'and'): ?> checked="checked"<?php endif; ?>>
-                  <label for="matchAll_<?= $this->uniqueId ?>" class="custom-control-label"><?= $this->matchAll ?></label>
+              <div class="form-check form-check-inline">
+                <input type="radio" name="query_type" id="matchAll_<?= $this->uniqueId ?>" class="form-check-input radio" value="and"<?php if ($this->queryType === 'and'): ?> checked="checked"<?php endif; ?>>
+                <label for="matchAll_<?= $this->uniqueId ?>" class="form-check-label"><?= $this->matchAll ?></label>
               </div>
-              <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" name="query_type" id="matchAny_<?= $this->uniqueId ?>" class="custom-control-input radio" value="or"<?php if ($this->queryType == 'or'): ?> checked="checked"<?php endif; ?>>
-                  <label for="matchAny_<?= $this->uniqueId ?>" class="custom-control-label"><?= $this->matchAny ?></label>
+              <div class="form-check form-check-inline">
+                <input type="radio" name="query_type" id="matchAny_<?= $this->uniqueId ?>" class="form-check-input radio" value="or"<?php if ($this->queryType === 'or'): ?> checked="checked"<?php endif; ?>>
+                <label for="matchAny_<?= $this->uniqueId ?>" class="form-check-label"><?= $this->matchAny ?></label>
               </div>
           </fieldset>
         </div>

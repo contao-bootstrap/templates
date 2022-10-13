@@ -4,7 +4,7 @@
 
   <figure class="video_container">
     <?php if ($this->playerAspect): ?>
-      <div class="embed-responsive embed-responsive-<?= str_replace(':', 'by', $this->playerAspect)?>">
+      <div class="ratio ratio-<?= str_replace(':', 'x', $this->playerAspect)?>">
     <?php endif; ?>
       <?php if ($this->splashImage): ?>
         <a id="splashImage_<?= $this->id ?>" href="<?= $this->src ?>">
@@ -17,13 +17,12 @@
             iframe.src = this.href;
             iframe.width = '<?= $this->width ?>';
             iframe.height = '<?= $this->height ?>';
-            <?php if ($this->playerAspect): ?>iframe.setAttribute('class', 'embed-responsive-item');<?php endif ?>
             iframe.setAttribute('allowfullscreen', '');
             this.parentNode.replaceChild(iframe, this);
           });
         </script>
       <?php else: ?>
-        <iframe<?= $this->size ?> src="<?= $this->src ?>"<?php if ($this->playerAspect): ?> class="embed-responsive-item"<?php endif ?> allowfullscreen></iframe>
+        <iframe<?= $this->size ?> src="<?= $this->src ?>" allowfullscreen></iframe>
       <?php endif; ?>
     <?php if ($this->playerAspect): ?>
       </div>

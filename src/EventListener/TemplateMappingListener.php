@@ -10,18 +10,15 @@ use ContaoBootstrap\Core\Environment;
 
 final class TemplateMappingListener
 {
-    private Environment $environment;
-
     /**
      * Template name mapping.
      *
      * @var array{mandatory: array<string,string>, optional: array<string,string>}|null
      */
-    private ?array $mapping = null;
+    private array|null $mapping = null;
 
-    public function __construct(Environment $environment)
+    public function __construct(private Environment $environment)
     {
-        $this->environment = $environment;
     }
 
     /**
@@ -33,7 +30,7 @@ final class TemplateMappingListener
      */
     public function onParseTemplate(Template $template): void
     {
-        if (! $this->environment->isEnabled()) {
+        if (! $this->environment->enabled) {
             return;
         }
 
@@ -59,7 +56,7 @@ final class TemplateMappingListener
             return;
         }
 
-        $this->mapping = $this->environment->getConfig()->get('templates.mapping', []);
+        $this->mapping = $this->environment->getConfig()->get(['templates', 'mapping'], []);
     }
 
     /**
@@ -67,7 +64,7 @@ final class TemplateMappingListener
      *
      * @param string $templateName The default template name.
      */
-    private function getMappedTemplateName(string $templateName): ?string
+    private function getMappedTemplateName(string $templateName): string|null
     {
         if (isset($this->mapping['mandatory'][$templateName])) {
             return $this->mapping['mandatory'][$templateName];
@@ -91,6 +88,6 @@ final class TemplateMappingListener
             return false;
         }
 
-        return ! $this->environment->getConfig()->get('templates.auto_mapping', true);
+        return ! $this->environment->getConfig()->get(['templates', 'auto_mapping'], true);
     }
 }

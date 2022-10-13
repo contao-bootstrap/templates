@@ -27,7 +27,7 @@ final class NavClassListener
      *
      * @Hook("isVisibleElement")
      */
-    public function onIsVisibleElement(Model $element, $isVisible): bool
+    public function onIsVisibleElement(Model $element, mixed $isVisible): bool
     {
         $isVisible = (bool) $isVisible;
 

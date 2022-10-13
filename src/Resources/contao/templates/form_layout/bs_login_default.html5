@@ -15,29 +15,29 @@
             <label for="verify"><?= $this->authCode ?></label>
             <input type="text" name="verify" id="verify" class="text form-control" value="" autocapitalize="off" autocomplete="one-time-code" required>
           </div>
-          <div class="widget form-group widget-checkbox">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" name="trusted" id="trusted" class="tl_checkbox custom-control-input" value="1">
-              <label for="trusted" class="custom-control-label"><?= $this->trans('MSC.twoFactorTrustDevice') ?></label>
+          <div class="widget form-group <?= $this->rowClass ?> widget-checkbox">
+            <div class="form-check">
+              <input type="checkbox" name="trusted" id="trusted" class="tl_checkbox form-check-input" value="1">
+              <label for="trusted" class="form-check-label"><?= $this->trans('MSC.twoFactorTrustDevice') ?></label>
             </div>
           </div>
         <?php else: ?>
-            <div class="widget form-group widget-text">
+            <div class="widget form-group <?= $this->rowClass ?> widget-text">
                 <label for="username"><?= $this->username ?></label>
                 <input type="text" name="username" id="username" class="text form-control" value="<?= $this->value ?>"
                        required>
             </div>
-            <div class="widget form-group widget-password">
+            <div class="widget form-group <?= $this->rowClass ?> widget-password">
                 <label for="password"><?= $this->password ?></label>
                 <input type="password" name="password" id="password" class="text form-control password" value=""
                        required>
             </div>
             <?php if ($this->autologin): ?>
-                <div class="widget form-group widget-checkbox">
+                <div class="widget form-group <?= $this->rowClass ?> widget-checkbox">
                     <fieldset class="checkbox_container">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="autologin" class="custom-control-input" id="autologin">
-                            <label class="custom-control-label" for="autologin"><?= $this->autoLabel ?></label>
+                        <div class="form-check">
+                            <input type="checkbox" name="autologin" class="form-check-input" id="autologin">
+                            <label class="form-check-label" for="autologin"><?= $this->autoLabel ?></label>
                         </div>
                     </fieldset>
                 </div>

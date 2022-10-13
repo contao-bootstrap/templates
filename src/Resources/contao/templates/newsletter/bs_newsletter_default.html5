@@ -23,8 +23,8 @@
                 <fieldset id="ctrl_channels_<?= $this->id ?>" class="checkbox_container">
                     <legend class="sr-only"><?= $this->channelsLabel ?></legend>
                     <?php foreach ($this->channels as $id=>$title): ?>
-                        <div class="custom-control custom-checkbox custom-control">
-                            <input type="checkbox" name="channels[]" id="opt_<?= $this->id ?>_<?= $id ?>" value="<?= $id ?>" class="checkbox custom-control-input"<?php if (is_array($this->selectedChannels) && in_array($id, $this->selectedChannels)) echo ' checked'; ?>> <label for="opt_<?= $this->id ?>_<?= $id ?>" class="custom-control-label"><?= $title ?></label>
+                        <div class="form-check">
+                            <input type="checkbox" name="channels[]" id="opt_<?= $this->id ?>_<?= $id ?>" value="<?= $id ?>" class="checkbox cform-check-input"<?php if (is_array($this->selectedChannels) && in_array($id, $this->selectedChannels)) echo ' checked'; ?>> <label for="opt_<?= $this->id ?>_<?= $id ?>" class="form-check-label"><?= $title ?></label>
                         </div>
                     <?php endforeach; ?>
                 </fieldset>
