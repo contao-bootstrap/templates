@@ -7,7 +7,9 @@ namespace ContaoBootstrap\Templates\View;
 use Contao\FrontendTemplate;
 use Contao\Template;
 use ContaoBootstrap\Core\Environment;
+use ContaoBootstrap\Form\FormLayout\AbstractBootstrapFormLayout;
 use ContaoBootstrap\Form\FormLayout\DefaultFormLayout;
+use ContaoBootstrap\Form\FormLayout\FloatingFormLayout;
 use ContaoBootstrap\Form\FormLayout\HorizontalFormLayout;
 use Netzmacht\Contao\FormDesigner\LayoutManager;
 
@@ -29,6 +31,8 @@ final class FormRenderer
 
         if ($formLayout instanceof HorizontalFormLayout) {
             $templateName = $templatePrefix . '_horizontal';
+        } elseif ($formLayout instanceof FloatingFormLayout) {
+            $templateName = $templatePrefix . '_floating';
         } else {
             $templateName = $templatePrefix . '_default';
         }
@@ -59,8 +63,10 @@ final class FormRenderer
             $template->labelColClass  = null;
             $template->colClass       = null;
             $template->colOffsetClass = null;
-            $template->rowClass       = $formLayout instanceof DefaultFormLayout ? $formLayout->getMargin() : null;
             $template->isHorizontal   = false;
+            $template->rowClass       = $formLayout instanceof AbstractBootstrapFormLayout
+                ? $formLayout->getMargin()
+                : null;
         }
 
         $template->formLayout  = $formLayout;
