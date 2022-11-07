@@ -13,7 +13,7 @@
             <?php endforeach; ?>
         <?php endif; ?>
 
-        <div class="widget widget-text form-group <?= $this->rowClass ?> mandatory">
+        <div class="widget widget-text <?= $this->rowClass ?> mandatory">
             <label for="ctrl_email_<?= $this->id ?>" class="<?= $this->labelColClass ?>"><?= $this->emailLabel ?></label>
             <div class="<?= $this->colClass ?>">
             <input type="text" name="email" id="ctrl_email_<?= $this->id ?>" class="text form-control mandatory" value="<?= $this->email ?>" placeholder="<?= $this->emailLabel ?>" required>
@@ -35,7 +35,7 @@
 
         <?= $this->captcha ?>
 
-        <div class="widget widget-submit form-group <?= $this->rowClass ?>">
+        <div class="widget widget-submit <?= $this->rowClass ?>">
             <div class="<?= $this->colOffsetClass ?>">
             <button type="submit" class="submit <?= $this->buttonClass ?>"><?= $this->submit ?></button>
             </div>
