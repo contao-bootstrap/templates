@@ -13,13 +13,13 @@
             <?php endforeach; ?>
         <?php endif; ?>
 
-        <div class="widget widget-text form-group mandatory">
+        <div class="widget widget-text mandatory">
             <label for="ctrl_email_<?= $this->id ?>" class="sr-only"><?= $this->emailLabel ?></label>
             <input type="text" name="email" id="ctrl_email_<?= $this->id ?>" class="text form-control mandatory" value="<?= $this->email ?>" placeholder="<?= $this->emailLabel ?>" required>
         </div>
 
         <?php if ($this->showChannels): ?>
-            <div class="widget widget-checkbox form-group">
+            <div class="widget widget-checkbox">
                 <fieldset id="ctrl_channels_<?= $this->id ?>" class="checkbox_container">
                     <legend class="sr-only"><?= $this->channelsLabel ?></legend>
                     <?php foreach ($this->channels as $id=>$title): ?>
