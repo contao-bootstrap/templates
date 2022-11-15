@@ -21,8 +21,8 @@ final class NavClassListener
     /**
      * Check if a module is loaded which make use the bs_nav_class value.
      *
-     * @param Model $element   The given element.
-     * @param bool  $isVisible Visibility state.
+     * @param Model      $element   The given element.
+     * @param bool|mixed $isVisible Visibility state.
      */
     public function onIsVisibleElement(Model $element, $isVisible): bool
     {
@@ -54,6 +54,6 @@ final class NavClassListener
             return;
         }
 
-        $template->navClass = (string) $this->navClass;
+        $template->navClass = $this->navClass;
     }
 }

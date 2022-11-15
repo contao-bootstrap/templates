@@ -14,9 +14,9 @@ final class TemplateMappingListener
     /**
      * Template name mapping.
      *
-     * @var array<string,string>|null
+     * @var array{mandatory: array<string,string>, optional: array<string,string>}|null
      */
-    private ?array $mapping;
+    private ?array $mapping = null;
 
     public function __construct(Environment $environment)
     {
