@@ -1,5 +1,9 @@
-.idea
-.tx/
+# composer related
 vendor/
-module/.skip
-composer.lock
+
+# Translations
+.tx
+
+# phpcq
+/.phpcq/
+.phpcs-cache

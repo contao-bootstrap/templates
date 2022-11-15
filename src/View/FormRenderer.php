@@ -1,16 +1,5 @@
 <?php
 
-/**
- * Contao Bootstrap templates.
- *
- * @package    contao-bootstrap
- * @subpackage Templates
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2014-2018 netzmacht David Molineus. All rights reserved.
- * @license    https://github.com/contao-bootstrap/templates/blob/master/LICENSE LGPL 3.0-or-later
- * @filesource
- */
-
 declare(strict_types=1);
 
 namespace ContaoBootstrap\Templates\View;
@@ -21,31 +10,12 @@ use ContaoBootstrap\Core\Environment;
 use ContaoBootstrap\Form\FormLayout\HorizontalFormLayout;
 use Netzmacht\Contao\FormDesigner\LayoutManager;
 
-/**
- * Class FormView
- */
 final class FormRenderer
 {
-    /**
-     * Form layout manager.
-     *
-     * @var LayoutManager
-     */
     private LayoutManager $layoutManager;
 
-    /**
-     * Bootstrap environment.
-     *
-     * @var Environment
-     */
     private Environment $environment;
 
-    /**
-     * FormRenderer constructor.
-     *
-     * @param LayoutManager $layoutManager Form layout manager.
-     * @param Environment   $environment   Bootstrap environment.
-     */
     public function __construct(LayoutManager $layoutManager, Environment $environment)
     {
         $this->layoutManager = $layoutManager;
@@ -55,10 +25,8 @@ final class FormRenderer
     /**
      * Generate the form view.
      *
-     * @param string $templatePrefix The template prefix which gets an _horizontal or _default suffix.
-     * @param array  $data           Template data being used in the new template.
-     *
-     * @return string
+     * @param string              $templatePrefix The template prefix which gets an _horizontal or _default suffix.
+     * @param array<string,mixed> $data           Template data being used in the new template.
      */
     public function render(string $templatePrefix, array $data): string
     {
@@ -81,8 +49,6 @@ final class FormRenderer
      * Prepare the template by adding grid related classes.
      *
      * @param Template $template The template.
-     *
-     * @return void
      */
     public function prepare(Template $template): void
     {
@@ -108,8 +74,6 @@ final class FormRenderer
 
     /**
      * Get the button class.
-     *
-     * @return string
      */
     public function getButtonClass(): string
     {

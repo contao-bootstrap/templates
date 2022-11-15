@@ -1,16 +1,5 @@
 <?php
 
-/**
- * Contao Bootstrap templates.
- *
- * @package    contao-bootstrap
- * @subpackage Templates
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2014-2018 netzmacht David Molineus. All rights reserved.
- * @license    https://github.com/contao-bootstrap/templates/blob/master/LICENSE LGPL 3.0-or-later
- * @filesource
- */
-
 declare(strict_types=1);
 
 namespace ContaoBootstrap\Templates\View\Nav;
@@ -20,44 +9,31 @@ use Contao\PageModel;
 use Netzmacht\Html\Attributes;
 use Netzmacht\Html\Exception\InvalidArgumentException;
 
-/**
- * Class NavigationHelper provides an navigation template helper for the navbar navigation.
- *
- * @package ContaoBootstrap\Templates\View\Nav
- */
+use function substr;
+
 class NavigationHelper
 {
     /**
      * Navigation item template.
-     *
-     * @var FrontendTemplate
      */
     private FrontendTemplate $template;
 
     /**
      * List attributes.
-     *
-     * @var Attributes
      */
     private Attributes $attributes;
 
     /**
      * Html tag.
-     *
-     * @var string
      */
     private string $tag;
 
     /**
      * Navigation level.
-     *
-     * @var int
      */
     private int $level;
 
     /**
-     * NavigationHelper constructor.
-     *
      * @param FrontendTemplate $template Frontend template.
      * @param string           $navClass Additional nav class being added to the first level.
      *
@@ -83,9 +59,11 @@ class NavigationHelper
             $this->tag = 'div';
         }
 
-        if ($this->level === 2) {
-            $attributes->addClass('dropdown-menu');
+        if ($this->level !== 2) {
+            return;
         }
+
+        $attributes->addClass('dropdown-menu');
     }
 
     /**
@@ -104,8 +82,6 @@ class NavigationHelper
 
     /**
      * Get all attributes.
-     *
-     * @return Attributes
      */
     public function getAttributes(): Attributes
     {
@@ -115,9 +91,7 @@ class NavigationHelper
     /**
      * Get an item helper for an item.
      *
-     * @param array $item Item data.
-     *
-     * @return ItemHelper
+     * @param array<string,mixed> $item Item data.
      *
      * @throws InvalidArgumentException If invalid data is given.
      */
@@ -125,17 +99,17 @@ class NavigationHelper
     {
         if ($this->level !== 1 && $item['type'] === 'folder') {
             return new HeaderItemHelper($item);
-        } elseif ($this->level === 2 || ($this->level > 1 && $this->getPageType() === 'folder')) {
-            return new DropdownItemHelper($item);
-        } else {
-            return new NavItemHelper($item);
         }
+
+        if ($this->level === 2 || ($this->level > 1 && $this->getPageType() === 'folder')) {
+            return new DropdownItemHelper($item);
+        }
+
+        return new NavItemHelper($item);
     }
 
     /**
      * Get the html tag.
-     *
-     * @return string
      */
     public function getTag(): string
     {
@@ -146,8 +120,6 @@ class NavigationHelper
      * Check the level.
      *
      * @param int $level Navigation level.
-     *
-     * @return bool
      */
     public function isLevel(int $level): bool
     {
@@ -156,8 +128,6 @@ class NavigationHelper
 
     /**
      * Get the page type of the current navigation page.
-     *
-     * @return string
      */
     private function getPageType(): string
     {
