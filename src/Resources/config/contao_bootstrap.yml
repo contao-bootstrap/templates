@@ -16,6 +16,10 @@ templates:
       mod_password: mod_password_bs
       mod_changePassword: mod_changePassword_bs
       mod_lostPassword: mod_lostPassword_bs
+      mod_two_factor: mod_two_factor_bs
 
   gravatar:
     default: mp
+
+  margin:
+    default: 3

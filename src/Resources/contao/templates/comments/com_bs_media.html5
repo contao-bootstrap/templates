@@ -1,6 +1,6 @@
-
-<div class="media mb-3 comment_bs<?= $this->class ?>" id="<?= $this->id ?>">
-  <img class="mr-3" src="<?= $this->getContainer()->get('contao_bootstrap.templates.view.gravatar')->generateUrl($this->email) ?>" alt="<?= \Contao\StringUtil::specialchars($this->name) ?>">
+<?php $spacing = $this->getContainer()->get('contao_bootstrap.templates.view.spacing') ?>
+<div class="media <?= $spacing->mb() ?> comment_bs<?= $this->class ?>" id="<?= $this->id ?>">
+  <img class="<?= $spacing->mr() ?>" src="<?= $this->getContainer()->get('contao_bootstrap.templates.view.gravatar')->generateUrl($this->email) ?>" alt="<?= \Contao\StringUtil::specialchars($this->name) ?>">
   <div class="media-body">
   <p class="info"><?= $this->by ?> <?php if ($this->website): ?><a href="<?= $this->website ?>" target="_blank" rel="nofollow noreferrer noopener"><?php endif; ?><?= $this->name ?><?php if ($this->website): ?></a><?php endif; ?> | <time datetime="<?= $this->datetime ?>" class="date"><?= $this->date ?></time></p>
 
@@ -9,8 +9,8 @@
   </div>
 
   <?php if ($this->addReply): ?>
-    <div class="media mt-3 reply">
-      <img class="mr-3" src="<?= $this->getContainer()->get('contao_bootstrap.templates.view.gravatar')->generateUrl($this->author->email) ?>" alt="<?= \Contao\StringUtil::specialchars($this->author->name) ?>">
+    <div class="media <?= $spacing->mt() ?> reply">
+      <img class="<?= $spacing->mr() ?>" src="<?= $this->getContainer()->get('contao_bootstrap.templates.view.gravatar')->generateUrl($this->author->email) ?>" alt="<?= \Contao\StringUtil::specialchars($this->author->name) ?>">
       <div class="media-body">
         <p class="info"><?= $this->rby ?> <?= $this->author->name ?></p>
 

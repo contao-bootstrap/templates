@@ -1,16 +1,5 @@
 <?php
 
-/**
- * Contao Bootstrap templates.
- *
- * @package    contao-bootstrap
- * @subpackage Templates
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2014-2018 netzmacht David Molineus. All rights reserved.
- * @license    https://github.com/contao-bootstrap/templates/blob/master/LICENSE LGPL 3.0-or-later
- * @filesource
- */
-
 declare(strict_types=1);
 
 namespace ContaoBootstrap\Templates\View\Nav;
@@ -19,31 +8,27 @@ use Contao\StringUtil;
 use Netzmacht\Html\Attributes;
 use Netzmacht\Html\Exception\InvalidArgumentException;
 
-/**
- * Base helper for an navigation item.
- *
- * @package ContaoBootstrap\Templates\View\Nav
- */
+use function implode;
+use function in_array;
+
 abstract class AbstractItemHelper extends Attributes implements ItemHelper
 {
     /**
      * Current item.
      *
-     * @var array
+     * @var array<string,mixed>
      */
-    protected $item;
+    protected array $item;
 
     /**
      * Item classes.
      *
-     * @var array
+     * @var list<string>
      */
-    protected $itemClass = array();
+    protected array $itemClass = [];
 
     /**
-     * AbstractItemHelper constructor.
-     *
-     * @param array $item Navigation item.
+     * @param array<string,mixed> $item Navigation item.
      *
      * @throws InvalidArgumentException If a broken html attribute is created.
      */
@@ -68,11 +53,13 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
             }
         }
 
-        $attributes = array('accesskey', 'tabindex', 'target');
+        $attributes = ['accesskey', 'tabindex', 'target'];
         foreach ($attributes as $attribute) {
-            if ($item[$attribute]) {
-                $this->setAttribute($attribute, $item[$attribute]);
+            if (! $item[$attribute]) {
+                continue;
             }
+
+            $this->setAttribute($attribute, $item[$attribute]);
         }
 
         $title = $this->item['pageTitle'] ?: $this->item['title'];
@@ -81,9 +68,6 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
         $this->initializeItemClasses();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getItemClass(bool $asArray = false): string
     {
         return implode(' ', $this->itemClass);
@@ -97,17 +81,11 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
         return $this->itemClass;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTag(): string
     {
         return $this->item['isActive'] ? 'strong' : 'a';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function hasDivider(): bool
     {
         return false;
@@ -115,20 +93,22 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
 
     /**
      * Initialize the item classes.
-     *
-     * @return void
      */
     private function initializeItemClasses(): void
     {
-        if ($this->item['class']) {
-            $classes = StringUtil::trimsplit(' ', $this->item['class']);
-            foreach ($classes as $class) {
-                $this->itemClass[] = $class;
-            }
-
-            if (in_array('trail', $this->itemClass)) {
-                $this->itemClass[] = 'active';
-            }
+        if (! $this->item['class']) {
+            return;
         }
+
+        $classes = StringUtil::trimsplit(' ', $this->item['class']);
+        foreach ($classes as $class) {
+            $this->itemClass[] = $class;
+        }
+
+        if (! in_array('trail', $this->itemClass)) {
+            return;
+        }
+
+        $this->itemClass[] = 'active';
     }
 }

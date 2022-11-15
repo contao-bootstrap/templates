@@ -4,7 +4,7 @@ Bootstrap 4 Contao Templates Component
 [![Version](http://img.shields.io/packagist/v/contao-bootstrap/templates.svg?style=for-the-badge&label=Latest)](http://packagist.org/packages/contao-bootstrap/templates)
 [![GitHub issues](https://img.shields.io/github/issues/contao-bootstrap/templates.svg?style=for-the-badge&logo=github)](https://github.com/contao-bootstrap/templates/issues)
 [![License](http://img.shields.io/packagist/l/contao-bootstrap/templates.svg?style=for-the-badge&label=License)](http://packagist.org/packages/contao-bootstrap/templates)
-[![Build Status](http://img.shields.io/travis/contao-bootstrap/templates/master.svg?style=for-the-badge&logo=travis)](https://travis-ci.org/contao-bootstrap/templates)
+[![Build Status](https://img.shields.io/github/workflow/status/contao-bootstrap/templates/Code%20Quality%20Diagnostics/master?style=for-the-badge)](https://github.com/contao-bootstrap/templates/actions/workflows/diagnostics.yml)
 [![Downloads](http://img.shields.io/packagist/dt/contao-bootstrap/templates.svg?style=for-the-badge&label=Downloads)](http://packagist.org/packages/contao-bootstrap/templates)
 
 Features
@@ -12,12 +12,12 @@ Features
 
 This extension provides several Bootstrap 4 based templates Contao CMS.
 
-It's possible to use this extension in an installation where the default templates are required. To avoid wrong 
-templates being loaded theres a feature called *template automapping*. Each bootstrap template has a different name 
-(usually <em>_bs</em>) prefix than the default one. On runtime the template name get changed so you don't have to select 
+It's possible to use this extension in an installation where the default templates are required. To avoid wrong
+templates being loaded theres a feature called *template automapping*. Each bootstrap template has a different name
+(usually <em>_bs</em>) prefix than the default one. On runtime the template name get changed so you don't have to select
 the modified templates everywhere.
 
-The automapping is only active if a page layout has the type *bootstrap* and you did not disable the *automapping* in 
+The automapping is only active if a page layout has the type *bootstrap* and you did not disable the *automapping* in
 the theme settings.
 
 Following templates are provided:
@@ -51,14 +51,14 @@ Requirements
 
  - PHP 7.1
  - Contao ~4.4
- 
+
 Install
 -------
 
 ### Managed edition
 
 When using the managed edition it's pretty simple to install the package. Just search for the package in the
-Contao Manager and install it. Alternatively you can use the CLI.  
+Contao Manager and install it. Alternatively you can use the CLI.
 
 ```bash
 # Using the contao manager

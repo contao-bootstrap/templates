@@ -1,55 +1,42 @@
 <?php
 
-/**
- * Contao Bootstrap templates.
- *
- * @package    contao-bootstrap
- * @subpackage Templates
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2014-2018 netzmacht David Molineus. All rights reserved.
- * @license    https://github.com/contao-bootstrap/templates/blob/master/LICENSE LGPL 3.0-or-later
- * @filesource
- */
-
 declare(strict_types=1);
 
 namespace ContaoBootstrap\Templates\EventListener;
 
 use Contao\ContentModel;
+use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\Model;
 use Contao\ModuleModel;
 use Contao\Template;
 
-/**
- * Class NavClassListener
- */
+use function substr;
+
 final class NavClassListener
 {
     /**
      * Nav class.
-     *
-     * @var string
      */
-    private $navClass;
+    private string $navClass = '';
 
     /**
      * Check if a module is loaded which make use the bs_nav_class value.
      *
-     * @param Model $element   The given element.
-     * @param bool  $isVisible Visibility state.
+     * @param Model      $element   The given element.
+     * @param bool|mixed $isVisible Visibility state.
      *
-     * @return bool
+     * @Hook("isVisibleElement")
      */
     public function onIsVisibleElement(Model $element, $isVisible): bool
     {
         $isVisible = (bool) $isVisible;
 
         // load module if it is a module include element
-        if ($element instanceof ContentModel && $element->type == 'module') {
+        if ($element instanceof ContentModel && $element->type === 'module') {
             $element = ModuleModel::findByPK($element->module);
         }
 
-        if (!$element instanceof ModuleModel) {
+        if (! $element instanceof ModuleModel) {
             return $isVisible;
         }
 
@@ -64,7 +51,7 @@ final class NavClassListener
      *
      * @param Template $template The template being parsed.
      *
-     * @return void
+     * @Hook("parseTemplate")
      */
     public function onParseTemplate(Template $template): void
     {
@@ -72,6 +59,6 @@ final class NavClassListener
             return;
         }
 
-        $template->navClass = (string) $this->navClass;
+        $template->navClass = $this->navClass;
     }
 }
