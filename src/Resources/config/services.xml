@@ -5,17 +5,20 @@
         http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="contao_bootstrap.templates.view.form_renderer" class="ContaoBootstrap\Templates\View\FormRenderer" public="true">
-            <argument type="service" id="netzmacht.contao_form_designer.layout_manager" />
-            <argument type="service" id="contao_bootstrap.environment" />
+        <service id="contao_bootstrap.templates.view.form_renderer" class="ContaoBootstrap\Templates\View\FormRenderer"
+                 public="true">
+            <argument type="service" id="netzmacht.contao_form_designer.layout_manager"/>
+            <argument type="service" id="contao_bootstrap.environment"/>
         </service>
 
-        <service id="contao_bootstrap.templates.view.spacing" class="ContaoBootstrap\Templates\View\Spacing" public="true">
-            <argument type="service" id="contao_bootstrap.environment" />
+        <service id="contao_bootstrap.templates.view.spacing" class="ContaoBootstrap\Templates\View\Spacing"
+                 public="true">
+            <argument type="service" id="contao_bootstrap.environment"/>
         </service>
 
-        <service id="contao_bootstrap.templates.view.gravatar" class="ContaoBootstrap\Templates\View\Gravatar" public="true">
-            <argument type="service" id="contao_bootstrap.environment" />
+        <service id="contao_bootstrap.templates.view.gravatar" class="ContaoBootstrap\Templates\View\Gravatar"
+                 public="true">
+            <argument type="service" id="contao_bootstrap.environment"/>
         </service>
     </services>
 </container>
