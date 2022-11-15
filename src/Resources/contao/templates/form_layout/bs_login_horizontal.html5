@@ -12,7 +12,7 @@
         <?php elseif ($this->twoFactorEnabled): ?>
           <h3><?= $this->twoFactorAuthentication ?></h3>
           <div class="widget form-group <?= $this->rowClass ?> widget-text">
-            <label for="verify" class="col-form-label"><?= $this->authCode ?></label>
+            <label for="verify" class="col-form-label  <?= $this->labelColClass ?>"><?= $this->authCode ?></label>
             <div class="<?= $this->colClass ?>">
               <input type="text" name="verify" id="verify" class="text form-control" value="" autocapitalize="off" autocomplete="one-time-code" required>
             </div>
@@ -55,7 +55,7 @@
             <?php if (! $this->logout): ?><div class="<?= $this->colOffsetClass ?>"><?php endif ?>
             <button type="submit" class="submit <?= $this->buttonClass ?>"><?= $this->slabel ?></button>
             <?php if ($this->twoFactorEnabled): ?>
-              <a href="<?= $this->route('contao_frontend_logout') ?>"><?= $this->cancel ?> ›</a>
+              <a href="<?= $this->route('contao_frontend_logout') ?>" class="btn btn-link"><?= $this->cancel ?></a>
             <?php endif; ?>
             <?php if (! $this->logout): ?></div><?php endif ?>
         </div>
