@@ -1,6 +1,7 @@
+<?php $spacing = $this->getContainer()->get('contao_bootstrap.templates.view.spacing') ?>
 <?php if ($this->enable): ?>
   <?php if ($this->message): ?>
-    <p class="alert alert-danger my-3"><?= $this->message ?></p>
+    <p class="alert alert-danger <?= $spacing->my() ?>"><?= $this->message ?></p>
   <?php endif; ?>
   <p><?= $this->trans('MSC.twoFactorScan') ?></p>
   <form class="tl_two_factor_form" method="post">
@@ -25,7 +26,7 @@
     </div>
   </form>
 <?php elseif ($this->isEnabled): ?>
-  <div class="message my-3">
+  <div class="message <?= $spacing->my() ?>">
     <p class="alert alert-success"><?= $this->trans('MSC.twoFactorActive') ?></p>
   </div>
   <form class="tl_two_factor_form" id="<?= $this->formId ?>" method="post">
@@ -37,7 +38,7 @@
       </div>
     </div>
   </form>
-  <div class="recovery_codes mt-3">
+  <div class="recovery_codes <?= $spacing->mt() ?>">
     <h3><?= $this->trans('MSC.twoFactorBackupCodesLabel') ?></h3>
     <p><?= $this->trans('MSC.twoFactorBackupCodesExplain') ?></p>
     <?php if (!$this->showBackupCodes): ?>
@@ -67,7 +68,7 @@
       <p><?= $this->trans('MSC.twoFactorBackupCodesRegenerateInfo') ?></p>
     <?php endif; ?>
   </div>
-  <div class="trusted_devices mt-3">
+  <div class="trusted_devices <?= $spacing->mt() ?>">
     <h3><?= $this->trans('MSC.trustedDevices') ?></h3>
     <?php if (!$this->trustedDevices): ?>
       <p><?= $this->trans('MSC.noTrustedDevices') ?></p>

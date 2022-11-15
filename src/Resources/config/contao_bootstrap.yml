@@ -20,3 +20,6 @@ templates:
 
   gravatar:
     default: mp
+
+  margin:
+    default: 3
