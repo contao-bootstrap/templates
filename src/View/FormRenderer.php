@@ -8,15 +8,16 @@ use Contao\FrontendTemplate;
 use Contao\Template;
 use ContaoBootstrap\Core\Environment;
 use ContaoBootstrap\Form\FormLayout\AbstractBootstrapFormLayout;
-use ContaoBootstrap\Form\FormLayout\DefaultFormLayout;
 use ContaoBootstrap\Form\FormLayout\FloatingFormLayout;
 use ContaoBootstrap\Form\FormLayout\HorizontalFormLayout;
 use Netzmacht\Contao\FormDesigner\LayoutManager;
 
 final class FormRenderer
 {
-    public function __construct(private LayoutManager $layoutManager, private Environment $environment)
-    {
+    public function __construct(
+        private readonly LayoutManager $layoutManager,
+        private readonly Environment $environment,
+    ) {
     }
 
     /**
