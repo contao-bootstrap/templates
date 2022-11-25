@@ -14,7 +14,7 @@ use function count;
 use function implode;
 use function strpos;
 
-final class ReplaceImageClassesFilter implements PreRenderFilter
+final class HyperlinkButtonClassesTemplateFilter implements PreRenderFilter
 {
     public function supports(Template $template): bool
     {
