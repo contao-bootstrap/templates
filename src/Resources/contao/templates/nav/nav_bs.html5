@@ -10,7 +10,7 @@
         <div class="dropdown-divider"></div>
         <?php endif ?>
         <<?= $itemHelper->getTag(); ?> <?= $itemHelper ?>><?php if ($item['isActive']): ?><?= $item['link']?><?php else: ?><span itemprop="name"><?= $item['link']?></span><?php endif; ?></<?= $itemHelper->getTag(); ?>>
-        <?= $item['subitems'] ?>
+        <?= $item['subitems'] ?? '' ?>
     <?php if ($helper->isLevel(1)): ?>
       </li>
     <?php endif; ?>
