@@ -102,10 +102,10 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
 
         $classes = StringUtil::trimsplit(' ', $this->item['class']);
         foreach ($classes as $class) {
-            $this->itemClass[] = $class;
+            $this->itemClass[] = (string) $class;
         }
 
-        if (! in_array('trail', $this->itemClass)) {
+        if (! in_array('trail', $this->itemClass, true)) {
             return;
         }
 
