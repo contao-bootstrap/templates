@@ -2,6 +2,15 @@
 Changelog
 =========
 
+2.3.1 (2023-05-17)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/templates/compare/2.3.0...2.3.1)
+
+### Fixed
+
+ - Restore compatibility with Contao 4.9 ([#29](https://github.com/contao-bootstrap/templates/issues/29))
+
 2.3.0 (2022-11-15)
 ------------------
 
