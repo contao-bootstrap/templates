@@ -2,7 +2,16 @@
 Changelog
 =========
 
-2.3.1 (2023-05-17)
+2.3.2 (2023-05-05)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/templates/compare/2.3.1...2.3.2)
+
+### Fixed
+
+ - Provide BC layer for Contao 4.9 compatibility of mod_breadcrumb_bs template and allow Contao 4.9 again
+
+2.3.1 (2023-04-17)
 ------------------
 
 [Full Changelog](https://github.com/contao-bootstrap/templates/compare/2.3.0...2.3.1)
