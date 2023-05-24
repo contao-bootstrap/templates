@@ -34,6 +34,11 @@ final class TwigExtension extends AbstractExtension
                 ['needs_context' => true],
             ),
             new TwigFunction(
+                'contao_bootstrap_extract_img_classes',
+                [$this, 'extractImgClasses'],
+                ['needs_context' => true],
+            ),
+            new TwigFunction(
                 'contao_bootstrap_enabled',
                 fn () => $this->environment->enabled,
             ),
@@ -82,5 +87,38 @@ final class TwigExtension extends AbstractExtension
         $context['element_css_classes'] = implode(' ', $cssClasses);
 
         return array_values(array_unique($btnClasses));
+    }
+
+    /**
+     * @param array<string,mixed> $context
+     *
+     * @return list<string>
+     *
+     * @psalm-suppress InvalidReturnType
+     * @psalm-suppress InvalidReturnStatement
+     */
+    public function extractImgClasses(array &$context): array
+    {
+        $cssClasses = StringUtil::trimsplit(' ', $context['element_css_classes'] ?? '');
+        $imgClasses = [];
+
+        foreach ($cssClasses as $index => $cssClass) {
+            assert(is_string($cssClass));
+
+            if (! str_starts_with($cssClass, 'img-')) {
+                continue;
+            }
+
+            $imgClasses[] = $cssClass;
+            unset($cssClasses[$index]);
+        }
+
+        if ($imgClasses === []) {
+            return [];
+        }
+
+        $context['element_css_classes'] = implode(' ', $cssClasses);
+
+        return array_values(array_unique($imgClasses));
     }
 }
