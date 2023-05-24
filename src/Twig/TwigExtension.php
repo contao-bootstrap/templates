@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Templates\Twig;
 
 use Contao\StringUtil;
+use ContaoBootstrap\Core\Environment;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -18,6 +19,10 @@ use function str_starts_with;
 
 final class TwigExtension extends AbstractExtension
 {
+    public function __construct(private readonly Environment $environment)
+    {
+    }
+
     /** {@inheritDoc} */
     public function getFunctions(): array
     {
@@ -26,6 +31,10 @@ final class TwigExtension extends AbstractExtension
                 'contao_bootstrap_extract_btn_classes',
                 [$this, 'extractBtnClasses'],
                 ['needs_context' => true],
+            ),
+            new TwigFunction(
+                'contao_bootstrap_enabled',
+                fn () => $this->environment->enabled,
             ),
         ];
     }
