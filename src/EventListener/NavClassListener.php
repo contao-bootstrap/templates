@@ -41,7 +41,7 @@ final class NavClassListener
         }
 
         // do not limit for navigation module. so every module can access it
-        $this->navClass = $element->bs_nav_class;
+        $this->navClass = $element->bs_nav_class ?? '';
 
         return $isVisible;
     }
