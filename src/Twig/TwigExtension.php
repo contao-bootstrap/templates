@@ -6,6 +6,7 @@ namespace ContaoBootstrap\Templates\Twig;
 
 use Contao\StringUtil;
 use ContaoBootstrap\Core\Environment;
+use ContaoBootstrap\Templates\View\Spacing;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -19,7 +20,7 @@ use function str_starts_with;
 
 final class TwigExtension extends AbstractExtension
 {
-    public function __construct(private readonly Environment $environment)
+    public function __construct(private readonly Environment $environment, private readonly Spacing $spacing)
     {
     }
 
@@ -35,6 +36,14 @@ final class TwigExtension extends AbstractExtension
             new TwigFunction(
                 'contao_bootstrap_enabled',
                 fn () => $this->environment->enabled,
+            ),
+            new TwigFunction(
+                'contao_bootstrap_margin',
+                [$this->spacing, 'margin'],
+            ),
+            new TwigFunction(
+                'contao_bootstrap_padding',
+                [$this->spacing, 'padding'],
             ),
         ];
     }
@@ -65,7 +74,7 @@ final class TwigExtension extends AbstractExtension
         }
 
         if ($btnClasses === []) {
-            return $context;
+            return [];
         }
 
         array_unshift($btnClasses, 'btn');
