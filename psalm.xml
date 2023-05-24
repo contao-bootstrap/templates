@@ -19,6 +19,11 @@
                 <referencedClass name="UnitEnum"/>
             </errorLevel>
         </UndefinedDocblockClass>
+        <DeprecatedClass>
+            <errorLevel type="suppress">
+                <referencedClass name="Contao\Template"/>
+            </errorLevel>
+        </DeprecatedClass>
     </issueHandlers>
 
     <universalObjectCrates>
