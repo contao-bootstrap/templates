@@ -2,6 +2,13 @@
 Changelog
 =========
 
+3.0.0
+------
+
+### Added
+
+ - Add twig template support for Contao 5
+
 2.2.0 (2021-04-01)
 ------------------
 
@@ -25,7 +32,7 @@ Changelog
  - Add responsive-embed classes for youtube and vimeo player having aspect ratio ([#21](https://github.com/contao-bootstrap/templates/issues/21))
  - Backport playerAspect for video players so that responsive-embed is usable in Contao 4.4 ([#21](https://github.com/contao-bootstrap/templates/issues/21))
  - Added german translation
- 
+
 ### Changed
 
  - Use `grid.columns` configuration if available for grid gallery template (#20)
