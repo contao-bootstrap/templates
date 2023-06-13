@@ -1,6 +1,5 @@
 {% extends "@Contao/content_element/text.html.twig" %}
 {% if contao_bootstrap_enabled() and image %}
-  {% set img_attributes = attrs(figure_attributes|default).addClass(contao_bootstrap_extract_img_classes()) %}
   {% if layout == 'right' %}
     {% set attributes = attrs(attributes|default).addClass('clearfix') %}
     {% set figure_attributes = attrs(figure_attributes|default).addClass(['float-end', contao_bootstrap_margin(['s', 'b'], 'float')]) %}
