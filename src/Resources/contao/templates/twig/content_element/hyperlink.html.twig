@@ -1,4 +1,0 @@
-{% extends "@Contao/content_element/hyperlink.html.twig" %}
-{% if contao_bootstrap_enabled() %}
-  {% set link_attributes=attrs(link_attributes|default).addClass(contao_bootstrap_extract_btn_classes()) %}
-{% endif %}
