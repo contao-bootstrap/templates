@@ -42,20 +42,20 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
             $this->setAttribute('href', $item['href']);
             $this->setAttribute('itemprop', 'url');
 
-            if ($this->item['nofollow'] ?? false) {
+            if ((bool) ($this->item['nofollow'] ?? false)) {
                 $this->setAttribute('rel', 'nofollow');
             }
         } else {
             $this->setAttribute('itemprop', 'name');
 
-            if ($this->item['isActive'] ?? false) {
+            if ((bool) ($this->item['isActive'] ?? false)) {
                 $this->addClass('active');
             }
         }
 
         $attributes = ['accesskey', 'tabindex', 'target'];
         foreach ($attributes as $attribute) {
-            if (! ($item[$attribute] ?? false)) {
+            if (! (bool) ($item[$attribute] ?? false)) {
                 continue;
             }
 
@@ -96,7 +96,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
      */
     private function initializeItemClasses(): void
     {
-        if (! ($this->item['class'] ?? false)) {
+        if (! (bool) ($this->item['class'] ?? false)) {
             return;
         }
 

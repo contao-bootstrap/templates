@@ -40,7 +40,7 @@ final class TemplateMappingListener
         }
 
         $templateName = $this->getMappedTemplateName($template->getName());
-        if (! $templateName) {
+        if ($templateName === null) {
             return;
         }
 
