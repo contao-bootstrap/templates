@@ -7,7 +7,7 @@ namespace ContaoBootstrap\Templates\View\Nav;
 final class DropdownItemHelper extends AbstractItemHelper
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function __construct(array $item)
     {

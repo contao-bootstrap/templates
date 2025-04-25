@@ -76,7 +76,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     #[Override]
     public function getItemClassAsArray(): array

@@ -50,7 +50,7 @@ final class HeaderItemHelper extends Attributes implements ItemHelper
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     #[Override]
     public function getItemClassAsArray(): array

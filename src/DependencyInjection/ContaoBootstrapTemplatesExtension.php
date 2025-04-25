@@ -15,7 +15,7 @@ use function in_array;
 final class ContaoBootstrapTemplatesExtension extends Extension
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     #[Override]
     public function load(array $configs, ContainerBuilder $container): void
