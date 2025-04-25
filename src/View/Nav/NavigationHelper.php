@@ -11,7 +11,7 @@ use Netzmacht\Html\Exception\InvalidArgumentException;
 
 use function substr;
 
-class NavigationHelper
+final class NavigationHelper
 {
     /**
      * Navigation item template.

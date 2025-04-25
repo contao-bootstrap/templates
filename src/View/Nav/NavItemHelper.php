@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Templates\View\Nav;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
-class NavItemHelper extends AbstractItemHelper
+final class NavItemHelper extends AbstractItemHelper
 {
     /**
      * {@inheritdoc}
@@ -17,6 +17,7 @@ class NavItemHelper extends AbstractItemHelper
         $this->addClass('nav-link');
         $this->itemClass[] = 'nav-item';
 
+        /** @psalm-suppress RiskyTruthyFalsyComparison */
         if (! ($this->item['subitems'] ?? false)) {
             return;
         }

@@ -33,7 +33,7 @@
     "contao-bootstrap/core": "^3.0",
     "contao-bootstrap/form": "^3.0",
     "contao-community-alliance/meta-palettes": "^2.0.9",
-    "contao/core-bundle": "^4.13 || ^5.0",
+    "contao/core-bundle": "^4.13 || ^5.3",
     "netzmacht/contao-form-designer": "^1.1.0",
     "netzmacht/html": "^2.0.2 || ^3.0",
     "symfony/config": "^5.4 || ^6.0",

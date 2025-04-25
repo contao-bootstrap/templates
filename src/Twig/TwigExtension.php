@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Templates\Twig;
 
 use ContaoBootstrap\Templates\View\Spacing;
+use Override;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -15,6 +16,7 @@ final class TwigExtension extends AbstractExtension
     }
 
     /** {@inheritDoc} */
+    #[Override]
     public function getFunctions(): array
     {
         return [
