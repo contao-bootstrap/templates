@@ -50,16 +50,6 @@
   "conflict": {
     "contao/manager-plugin": "<2.1 || >= 3.0"
   },
-  "repositories": {
-    "contao-bootstrap-core": {
-      "type": "vcs",
-      "url": "https://git.netzmacht.de/contao-bootstrap/core.git"
-    },
-    "contao-bootstrap-form": {
-      "type": "vcs",
-      "url": "https://git.netzmacht.de/contao-bootstrap/form.git"
-    }
-  },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "autoload": {
