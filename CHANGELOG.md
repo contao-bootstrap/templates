@@ -2,6 +2,15 @@
 Changelog
 =========
 
+3.0.0
+------
+
+[Full Changelog](https://github.com/contao-bootstrap/templates/compare/2.3.2...3.0.0)
+
+### Added
+
+- Add twig template support for Contao 5
+
 2.3.2 (2023-05-05)
 ------------------
 

@@ -27,7 +27,7 @@ final class NavClassListener
      *
      * @Hook("isVisibleElement")
      */
-    public function onIsVisibleElement(Model $element, $isVisible): bool
+    public function onIsVisibleElement(Model $element, mixed $isVisible): bool
     {
         $isVisible = (bool) $isVisible;
 
@@ -41,7 +41,7 @@ final class NavClassListener
         }
 
         // do not limit for navigation module. so every module can access it
-        $this->navClass = $element->bs_nav_class;
+        $this->navClass = $element->bs_nav_class ?? '';
 
         return $isVisible;
     }

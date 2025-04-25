@@ -20,5 +20,10 @@
                  public="true">
             <argument type="service" id="contao_bootstrap.environment"/>
         </service>
+
+        <service id="contao_bootstrap.templates.twig.extension" class="ContaoBootstrap\Templates\Twig\TwigExtension">
+            <argument type="service" id="contao_bootstrap.templates.view.spacing"/>
+            <tag name="twig.extension"/>
+        </service>
     </services>
 </container>

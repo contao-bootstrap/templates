@@ -4,7 +4,7 @@ Bootstrap 4 Contao Templates Component
 [![Version](http://img.shields.io/packagist/v/contao-bootstrap/templates.svg?style=for-the-badge&label=Latest)](http://packagist.org/packages/contao-bootstrap/templates)
 [![GitHub issues](https://img.shields.io/github/issues/contao-bootstrap/templates.svg?style=for-the-badge&logo=github)](https://github.com/contao-bootstrap/templates/issues)
 [![License](http://img.shields.io/packagist/l/contao-bootstrap/templates.svg?style=for-the-badge&label=License)](http://packagist.org/packages/contao-bootstrap/templates)
-[![Build Status](https://img.shields.io/github/workflow/status/contao-bootstrap/templates/Code%20Quality%20Diagnostics/master?style=for-the-badge)](https://github.com/contao-bootstrap/templates/actions/workflows/diagnostics.yml)
+[![Build Status](https://img.shields.io/github/workflow/status/contao-bootstrap/templates/Code%20Quality%20Diagnostics?logo=githubactions&logoColor=%23fff&style=for-the-badge)](https://github.com/contao-bootstrap/templates/actions)
 [![Downloads](http://img.shields.io/packagist/dt/contao-bootstrap/templates.svg?style=for-the-badge&label=Downloads)](http://packagist.org/packages/contao-bootstrap/templates)
 
 Features
@@ -49,8 +49,8 @@ See [changelog](CHANGELOG.md)
 Requirements
 ------------
 
- - PHP 7.1
- - Contao ~4.4
+ - PHP ^8.1
+ - Contao ^4.13 || ^5.3
 
 Install
 -------
@@ -62,8 +62,8 @@ Contao Manager and install it. Alternatively you can use the CLI.
 
 ```bash
 # Using the contao manager
-$ php contao-manager.phar.php composer require contao-bootstrap/templates~2.0
+$ php contao-manager.phar.php composer require contao-bootstrap/templates ^3.0
 
 # Using composer directly
-$ php composer.phar require contao-bootstrap/templates~2.0
+$ php composer.phar require contao-bootstrap/templates ^3.0
 ```

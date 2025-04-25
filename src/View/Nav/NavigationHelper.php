@@ -11,7 +11,7 @@ use Netzmacht\Html\Exception\InvalidArgumentException;
 
 use function substr;
 
-class NavigationHelper
+final class NavigationHelper
 {
     /**
      * Navigation item template.
@@ -127,7 +127,7 @@ class NavigationHelper
     /**
      * Get the page type of the current navigation page.
      */
-    private function getPageType(): ?string
+    private function getPageType(): string|null
     {
         $page = PageModel::findByPk($this->template->pid);
 

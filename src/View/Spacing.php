@@ -6,6 +6,10 @@ namespace ContaoBootstrap\Templates\View;
 
 use ContaoBootstrap\Core\Environment;
 
+use function array_map;
+use function implode;
+use function is_array;
+use function is_int;
 use function sprintf;
 
 /**
@@ -14,98 +18,114 @@ use function sprintf;
  */
 final class Spacing
 {
-    private Environment $environment;
-
-    public function __construct(Environment $environment)
+    public function __construct(private readonly Environment $environment)
     {
-        $this->environment = $environment;
     }
 
-    public function margin(?string $direction = null, ?int $size = null): string
+    /** @param list<string>|string|null $direction */
+    public function margin(array|string|null $direction = null, int|string|null $size = null): string
     {
+        if (is_array($direction)) {
+            return implode(' ', array_map(fn (string $direction) => $this->margin($direction, $size), $direction));
+        }
+
         return sprintf(
             'm%s-%s',
             $direction ?? '',
-            $size ?? $this->environment->getConfig()->get(['templates', 'margin', 'default'], 3)
+            $this->size($size),
         );
     }
 
-    public function padding(?string $direction = null, ?int $size = null): string
+    /** @param list<string>|string|null $direction */
+    public function padding(array|string|null $direction = null, int|string|null $size = null): string
     {
+        if (is_array($direction)) {
+            return implode(' ', array_map(fn (string $direction) => $this->padding($direction, $size), $direction));
+        }
+
         return sprintf(
             'p%s-%s',
             $direction ?? '',
-            $size ?? $this->environment->getConfig()->get(['templates', 'margin', 'default'], 3)
+            $this->size($size),
         );
     }
 
-    public function m(?string $direction = null, ?int $size = null): string
+    public function m(string|null $direction = null, int|string|null $size = null): string
     {
         return $this->margin($direction, $size);
     }
 
-    public function my(?int $size = null): string
+    public function my(int|string|null $size = null): string
     {
         return $this->margin('y', $size);
     }
 
-    public function mx(?int $size = null): string
+    public function mx(int|string|null $size = null): string
     {
         return $this->margin('x', $size);
     }
 
-    public function mt(?int $size = null): string
+    public function mt(int|string|null $size = null): string
     {
         return $this->margin('t', $size);
     }
 
-    public function mb(?int $size = null): string
+    public function mb(int|string|null $size = null): string
     {
         return $this->margin('b', $size);
     }
 
-    public function ml(?int $size = null): string
+    public function ms(int|string|null $size = null): string
     {
-        return $this->margin('l', $size);
+        return $this->margin('s', $size);
     }
 
-    public function mr(?int $size = null): string
+    public function me(int|string|null $size = null): string
     {
-        return $this->margin('r', $size);
+        return $this->margin('e', $size);
     }
 
-    public function p(?string $direction = null, ?int $size = null): string
+    public function p(string|null $direction = null, int|string|null $size = null): string
     {
         return $this->padding($direction, $size);
     }
 
-    public function py(?int $size = null): string
+    public function py(int|string|null $size = null): string
     {
         return $this->padding('y', $size);
     }
 
-    public function px(?int $size = null): string
+    public function px(int|string|null $size = null): string
     {
         return $this->padding('x', $size);
     }
 
-    public function pt(?int $size = null): string
+    public function pt(int|string|null $size = null): string
     {
         return $this->padding('t', $size);
     }
 
-    public function pb(?int $size = null): string
+    public function pb(int|string|null $size = null): string
     {
         return $this->padding('b', $size);
     }
 
-    public function pl(?int $size = null): string
+    public function ps(int|string|null $size = null): string
     {
-        return $this->padding('l', $size);
+        return $this->padding('s', $size);
     }
 
-    public function pr(?int $size = null): string
+    public function pe(int|string|null $size = null): string
     {
-        return $this->padding('r', $size);
+        return $this->padding('e', $size);
+    }
+
+    private function size(int|string|null $size): int
+    {
+        if (is_int($size)) {
+            return $size;
+        }
+
+        return $this->environment->getConfig()->get(['templates', 'margin', $size ?? 'default'], 3);
     }
 }

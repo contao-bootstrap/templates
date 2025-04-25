@@ -13,7 +13,7 @@
             <?php endforeach; ?>
         <?php endif; ?>
 
-        <div class="widget widget-text form-group <?= $this->rowClass ?> mandatory">
+        <div class="widget widget-text <?= $this->rowClass ?> mandatory">
             <label for="ctrl_email_<?= $this->id ?>" class="<?= $this->labelColClass ?>"><?= $this->emailLabel ?></label>
             <div class="<?= $this->colClass ?>">
             <input type="text" name="email" id="ctrl_email_<?= $this->id ?>" class="text form-control mandatory" value="<?= $this->email ?>" placeholder="<?= $this->emailLabel ?>" required>
@@ -25,8 +25,8 @@
                 <label class="<?= $this->labelColClass ?>"><?= $this->channelsLabel ?></label>
                 <div class="<?= $this->colClass ?>">
                 <?php foreach ($this->channels as $id=>$title): ?>
-                    <div class="custom-control custom-checkbox custom-control">
-                        <input type="checkbox" name="channels[]" id="opt_<?= $this->id ?>_<?= $id ?>" value="<?= $id ?>" class="checkbox custom-control-input"<?php if (is_array($this->selectedChannels) && in_array($id, $this->selectedChannels)) echo ' checked'; ?>> <label for="opt_<?= $this->id ?>_<?= $id ?>" class="custom-control-label"><?= $title ?></label>
+                    <div class="form-check">
+                        <input type="checkbox" name="channels[]" id="opt_<?= $this->id ?>_<?= $id ?>" value="<?= $id ?>" class="checkbox form-check-input"<?php if (is_array($this->selectedChannels) && in_array($id, $this->selectedChannels)) echo ' checked'; ?>> <label for="opt_<?= $this->id ?>_<?= $id ?>" class="form-check-label"><?= $title ?></label>
                     </div>
                 <?php endforeach; ?>
                 </div>
@@ -35,7 +35,7 @@
 
         <?= $this->captcha ?>
 
-        <div class="widget widget-submit form-group <?= $this->rowClass ?>">
+        <div class="widget widget-submit <?= $this->rowClass ?>">
             <div class="<?= $this->colOffsetClass ?>">
             <button type="submit" class="submit <?= $this->buttonClass ?>"><?= $this->submit ?></button>
             </div>

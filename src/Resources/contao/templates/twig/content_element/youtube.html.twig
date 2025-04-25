@@ -1,0 +1,11 @@
+{% extends "@Contao/content_element/youtube.html.twig" %}
+{% block iframe %}
+  {% if contao_bootstrap_enabled() %}
+    {% set video_caption_attributes = attrs(video_caption_attributes|default).addClass('figure-caption') %}
+    {% if aspect_ratio %}<div class="ratio ratio-{{ aspect_ratio|replace({':': 'x'}) }}">{% endif %}
+    {{ parent() }}
+    {% if aspect_ratio %}</div>{% endif %}
+  {% else %}
+    {{ parent() }}
+  {% endif %}
+{% endblock %}

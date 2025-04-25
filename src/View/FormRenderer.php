@@ -7,19 +7,17 @@ namespace ContaoBootstrap\Templates\View;
 use Contao\FrontendTemplate;
 use Contao\Template;
 use ContaoBootstrap\Core\Environment;
+use ContaoBootstrap\Form\FormLayout\AbstractBootstrapFormLayout;
+use ContaoBootstrap\Form\FormLayout\FloatingFormLayout;
 use ContaoBootstrap\Form\FormLayout\HorizontalFormLayout;
 use Netzmacht\Contao\FormDesigner\LayoutManager;
 
 final class FormRenderer
 {
-    private LayoutManager $layoutManager;
-
-    private Environment $environment;
-
-    public function __construct(LayoutManager $layoutManager, Environment $environment)
-    {
-        $this->layoutManager = $layoutManager;
-        $this->environment   = $environment;
+    public function __construct(
+        private readonly LayoutManager $layoutManager,
+        private readonly Environment $environment,
+    ) {
     }
 
     /**
@@ -34,6 +32,8 @@ final class FormRenderer
 
         if ($formLayout instanceof HorizontalFormLayout) {
             $templateName = $templatePrefix . '_horizontal';
+        } elseif ($formLayout instanceof FloatingFormLayout) {
+            $templateName = $templatePrefix . '_floating';
         } else {
             $templateName = $templatePrefix . '_default';
         }
@@ -58,14 +58,16 @@ final class FormRenderer
             $template->labelColClass  = $formLayout->getLabelColumnClass();
             $template->colClass       = $formLayout->getColumnClass();
             $template->colOffsetClass = $formLayout->getColumnClass(true);
-            $template->rowClass       = $formLayout->getRowClass();
+            $template->rowClass       = $formLayout->getRowClass() . ' ' . $formLayout->getMargin();
             $template->isHorizontal   = true;
         } else {
             $template->labelColClass  = null;
             $template->colClass       = null;
             $template->colOffsetClass = null;
-            $template->rowClass       = null;
             $template->isHorizontal   = false;
+            $template->rowClass       = $formLayout instanceof AbstractBootstrapFormLayout
+                ? $formLayout->getMargin()
+                : null;
         }
 
         $template->formLayout  = $formLayout;
@@ -77,6 +79,6 @@ final class FormRenderer
      */
     public function getButtonClass(): string
     {
-        return 'btn ' . $this->environment->getConfig()->get('form.buttons.submit', 'btn-default');
+        return 'btn ' . $this->environment->getConfig()->get(['form', 'buttons', 'submit'], 'btn-default');
     }
 }

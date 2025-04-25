@@ -7,6 +7,7 @@ namespace ContaoBootstrap\Templates\View\Nav;
 use Contao\StringUtil;
 use Netzmacht\Html\Attributes;
 use Netzmacht\Html\Exception\InvalidArgumentException;
+use Override;
 
 use function implode;
 use function in_array;
@@ -42,20 +43,20 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
             $this->setAttribute('href', $item['href']);
             $this->setAttribute('itemprop', 'url');
 
-            if ($this->item['nofollow']) {
+            if ((bool) ($this->item['nofollow'] ?? false)) {
                 $this->setAttribute('rel', 'nofollow');
             }
         } else {
             $this->setAttribute('itemprop', 'name');
 
-            if ($this->item['isActive']) {
+            if ((bool) ($this->item['isActive'] ?? false)) {
                 $this->addClass('active');
             }
         }
 
         $attributes = ['accesskey', 'tabindex', 'target'];
         foreach ($attributes as $attribute) {
-            if (! $item[$attribute]) {
+            if (! (bool) ($item[$attribute] ?? false)) {
                 continue;
             }
 
@@ -68,24 +69,28 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
         $this->initializeItemClasses();
     }
 
+    #[Override]
     public function getItemClass(bool $asArray = false): string
     {
         return implode(' ', $this->itemClass);
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
+    #[Override]
     public function getItemClassAsArray(): array
     {
         return $this->itemClass;
     }
 
+    #[Override]
     public function getTag(): string
     {
         return $this->item['isActive'] ? 'strong' : 'a';
     }
 
+    #[Override]
     public function hasDivider(): bool
     {
         return false;
@@ -96,7 +101,7 @@ abstract class AbstractItemHelper extends Attributes implements ItemHelper
      */
     private function initializeItemClasses(): void
     {
-        if (! $this->item['class']) {
+        if (! (bool) ($this->item['class'] ?? false)) {
             return;
         }
 

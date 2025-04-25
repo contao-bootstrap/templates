@@ -1,0 +1,10 @@
+{% extends "@Contao/content_element/text.html.twig" %}
+{% if contao_bootstrap_enabled() and image %}
+  {% if layout == 'right' %}
+    {% set attributes = attrs(attributes|default).addClass('clearfix') %}
+    {% set figure_attributes = attrs(figure_attributes|default).addClass(['float-end', contao_bootstrap_margin(['s', 'b'], 'float')]) %}
+  {% elseif layout == 'left' %}
+    {% set attributes = attrs(attributes|default).addClass('clearfix') %}
+    {% set figure_attributes = attrs(figure_attributes|default).addClass(['float-start', contao_bootstrap_margin(['e', 'b'], 'float')]) %}
+  {% endif %}
+{% endif %}

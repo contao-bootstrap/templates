@@ -1,7 +1,7 @@
 <form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> id="<?= $this->formId ?>" method="post">
     <div class="formbody">
         <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formId ?>">
-        <input type="hidden" name="REQUEST_TOKEN" value="<?= $this->requestToken ?: '{{request_token}}' ?>">
+        <input type="hidden" name="REQUEST_TOKEN" value="<?= $this->requestToken ?>">
 
         <?php if ($this->message): ?>
             <p class="<?= $this->mclass ?>"><?= $this->message ?></p>
@@ -13,9 +13,9 @@
             <?php endforeach; ?>
         <?php endif; ?>
 
-        <div class="widget widget-text mandatory">
-            <label for="ctrl_email_<?= $this->id ?>" class="sr-only"><?= $this->emailLabel ?></label>
+        <div class="widget widget-text mandatory form-floating">
             <input type="text" name="email" id="ctrl_email_<?= $this->id ?>" class="text form-control mandatory" value="<?= $this->email ?>" placeholder="<?= $this->emailLabel ?>" required>
+            <label for="ctrl_email_<?= $this->id ?>" class="sr-only"><?= $this->emailLabel ?></label>
         </div>
 
         <?php if ($this->showChannels): ?>
