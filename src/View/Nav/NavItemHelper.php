@@ -25,7 +25,7 @@ final class NavItemHelper extends AbstractItemHelper
         $this->itemClass[] = 'dropdown';
         $this->addClass('dropdown-toggle');
 
-        $this->setAttribute('data-toggle', 'dropdown');
+        $this->setAttribute('data-bs-toggle', 'dropdown');
         $this->setAttribute('aria-haspopup', 'true');
         $this->setAttribute('aria-expanded', 'false');
     }
