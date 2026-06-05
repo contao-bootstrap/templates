@@ -13,7 +13,7 @@ use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
 use function count;
 
-#[AsEventListener(event: 'contao_bootstrap.core.build_context_config')]
+#[AsEventListener(event: 'contao_bootstrap.core.build_context_config', method: 'onBuildContextConfig')]
 final class ThemeConfigurationListener
 {
     /**
