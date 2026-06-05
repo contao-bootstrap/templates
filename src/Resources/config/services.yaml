@@ -1,0 +1,40 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: false
+
+    contao_bootstrap.templates.view.form_renderer:
+        class: ContaoBootstrap\Templates\View\FormRenderer
+        public: true
+        arguments:
+            - '@netzmacht.contao_form_designer.layout_manager'
+            - '@contao_bootstrap.environment'
+
+    contao_bootstrap.templates.view.spacing:
+        class: ContaoBootstrap\Templates\View\Spacing
+        public: true
+        arguments:
+            - '@contao_bootstrap.environment'
+
+    contao_bootstrap.templates.view.gravatar:
+        class: ContaoBootstrap\Templates\View\Gravatar
+        public: true
+        arguments:
+            - '@contao_bootstrap.environment'
+
+    contao_bootstrap.templates.twig.extension:
+        class: ContaoBootstrap\Templates\Twig\TwigExtension
+        arguments:
+            - '@contao_bootstrap.templates.view.spacing'
+
+    ContaoBootstrap\Templates\EventListener\TemplateMappingListener:
+        arguments:
+            - '@contao_bootstrap.environment'
+
+    ContaoBootstrap\Templates\EventListener\ThemeConfigurationListener: ~
+
+    ContaoBootstrap\Templates\EventListener\NavClassListener: ~
+
+    ContaoBootstrap\Templates\View\Template\HyperlinkButtonClassesTemplateFilter:
+        tags:
+            - { name: contao_bootstrap.pre_render_filter }

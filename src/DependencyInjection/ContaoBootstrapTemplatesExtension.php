@@ -8,7 +8,7 @@ use Override;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 use function in_array;
 
@@ -20,13 +20,12 @@ final class ContaoBootstrapTemplatesExtension extends Extension
     #[Override]
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $loader = new XmlFileLoader(
+        $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../Resources/config'),
         );
 
-        $loader->load('services.xml');
-        $loader->load('listener.xml');
+        $loader->load('services.yaml');
 
         $modules = (array) $container->getParameter('netzmacht.contao_form_designer.form_designer.modules');
         if (in_array('subscribe', $modules, true)) {

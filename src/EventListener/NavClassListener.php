@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Templates\EventListener;
 
 use Contao\ContentModel;
-use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\Model;
 use Contao\ModuleModel;
 use Contao\Template;
@@ -24,9 +24,8 @@ final class NavClassListener
      *
      * @param Model      $element   The given element.
      * @param bool|mixed $isVisible Visibility state.
-     *
-     * @Hook("isVisibleElement")
      */
+    #[AsHook('isVisibleElement')]
     public function onIsVisibleElement(Model $element, mixed $isVisible): bool
     {
         $isVisible = (bool) $isVisible;
@@ -50,9 +49,8 @@ final class NavClassListener
      * Set the nav class in the nav template.
      *
      * @param Template $template The template being parsed.
-     *
-     * @Hook("parseTemplate")
      */
+    #[AsHook('parseTemplate')]
     public function onParseTemplate(Template $template): void
     {
         if (substr($template->getName(), 0, 4) !== 'nav_') {

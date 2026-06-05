@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Templates\EventListener;
 
-use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\Template;
 use ContaoBootstrap\Core\Environment;
 
@@ -25,9 +25,8 @@ final class TemplateMappingListener
      * Handle the on parse template hook.
      *
      * @param Template $template The template being parsed.
-     *
-     * @Hook("parseTemplate")
      */
+    #[AsHook('parseTemplate')]
     public function onParseTemplate(Template $template): void
     {
         if (! $this->environment->enabled) {

@@ -9,9 +9,11 @@ use Contao\FilesModel;
 use Contao\ThemeModel;
 use ContaoBootstrap\Core\Environment\ThemeContext;
 use ContaoBootstrap\Core\Message\Command\BuildContextConfig;
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
 use function count;
 
+#[AsEventListener(event: 'contao_bootstrap.core.build_context_config')]
 final class ThemeConfigurationListener
 {
     /**
